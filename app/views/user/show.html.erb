@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <% if @alert_create == true %>
+      <div class="alert alert-success">
+        <p>Uhu! User created sucessfully!</p>
+      </div>
+    <% end  %>
+
+    <% if @alert_update == true %>
+      <div class="alert alert-success">
+        <p>Uhu! User updated sucessfully!</p>
+      </div>
+    <% end  %>
+    <h1><%= @user.username %></h1>
+    <br>
+  </div>
+  <div class="col-md-12">
+  <br>
+    <dt>Username</dt>
+    <dd><%= @user.username %></dd>
+    <dt>Email</dt>
+    <dd><%= @user.email %></dd>
+    <dt>Admin?</dt>
+    <dd><%= @user.admin %></dd>
+  </div>
+  <div class="col-md-12">
+    <br>
+    <a href="/users">Go back</a>
+    <br>
+  </div>
+</div>

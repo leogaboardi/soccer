@@ -1,0 +1,56 @@
+<div class="row">
+  <h2><%= @tournament %></h2>
+  <h2><%= @round_name %></h2>
+  <h3><%= @date %></h3>
+  <h3>Match current id: <%= @current_id %></h3>
+</div>
+<div class="row" id="containerCenter">
+  <div class="row">
+    <div class="row">
+      <div class="col-xs-4">
+      <img src=<%= @home_team %>>
+
+      </div>
+      <div class="col-xs-1">
+        <p class="score"></p>
+      </div>
+      <div class="col-xs-2">
+        <p class="score">x</p>
+      </div>
+      <div class="col-xs-1">
+        <p class="score"></p>
+      </div>
+      <div class="col-xs-4">
+        <img src=<%= @away_team %>>
+      </div>
+    </div>
+    <div class="row">
+      <form role="current_bets/1">
+        <div class="col-xs-4" style="text-align: center">
+          <button type="submit" name="bet" class="btn btn-primary" value="home_team">Bet this team</button>
+        </div>
+        <div class="col-xs-4" style="text-align: center">
+          <button type="submit" name="bet" class="btn btn-primary" value="draw">Bet a draw</button>
+        </div>
+        <div class="col-xs-4" style="text-align: center">
+          <button type="submit" name="bet" class="btn btn-primary" value="away_team">Bet this team</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Pagination -->
+<div class="row" style="text-align: center">
+  <div class="col-lg-12">
+    <ul class="pagination">
+      <li><a href="#">&laquo;</a></li>
+      <li><a href="/current/1">1</a></li>
+      <li><a href="/current/2">2</a></li>
+      <li><a href="/current/3">3</a></li>
+      <li><a href="/current/4">4</a></li>
+      <li><a href="/current/5">5</a></li>
+      <li><a href="#">&raquo;</a></li>
+    </ul>
+  </div>
+</div>
+<!-- Pagination ends -->

@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <h1>Manage teams</h1>
+    <p><a href="/teams/new_form" class="btn btn-primary">Add new team</a></p>
+    <table class="table table-striped">
+      <tr>
+        <th>Home team</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Away team</th>
+      </tr>
+      <% @match.each do |match| %>
+        <tr>
+        <td></td>
+        <td></td>
+        <td >X</td>
+        <td></td>
+        <td></td>
+        <td><a href="teams/<%= match.id %>">View</a></td>
+        <td><a href="teams/<%= match.id %>/edit_form">Edit</a></td>
+        <td><a href="teams/<%= match.id %>/delete">Delete</a></td>
+      </tr>
+      <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+</div>

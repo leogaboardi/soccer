@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tournament: MyString
+  round: 1
+  date: 2014-11-17
+  time: 2014-11-17 22:44:52
+  venue: MyString
+  home_team_id: 1
+  away_team_id: 1
+  home_goal: 1
+  away_goal: 1
+  outcome: 1
+  user_id: 1
+
+two:
+  tournament: MyString
+  round: 1
+  date: 2014-11-17
+  time: 2014-11-17 22:44:52
+  venue: MyString
+  home_team_id: 1
+  away_team_id: 1
+  home_goal: 1
+  away_goal: 1
+  outcome: 1
+  user_id: 1
