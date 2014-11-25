@@ -1,34 +1,29 @@
 <div class="row">
-  <div class="col-md-12">
-    <% if @alert_create == true %>
-      <div class="alert alert-success">
-        <p>Uhu! Team created sucessfully!</p>
-      </div>
-    <% end  %>
-
-    <% if @alert_update == true %>
-      <div class="alert alert-success">
-        <p>Uhu! Team updated sucessfully!</p>
-      </div>
-    <% end  %>
-    <h1><%= @team.label %></h1>
-    <br>
-  </div>
   <div class="col-md-8">
-  <br>
-    <dt>Team name</dt>
-    <dd><%= @team.label %></dd>
-    <dt>System name</dt>
-    <dd><%= @team.name %></dd>
-    <dt>Crest URL</dt>
-    <dd><%= @team.logo %></dd>
-  </div>
-  <div class="col-md-4">
-    <img src="<%= @team.logo %>">
+    <dl class="dl-horizontal">
+      <dt>Tournament</dt>
+      <dd><%= @match.tournament %></dd>
+      <dt>Round</dt>
+      <dd><%= @match.round %></dd>
+      <dt>Match date</dt>
+      <dd><%= @match.date %></dd>
+      <dt>Match starting time</dt>
+      <dd><%= @match.time %></dd>
+      <dt>Match venue</dt>
+      <dd><%= @match.venue %></dd>
+      <dt>Home team</dt>
+      <dd><%= @match.home_team_id %></dd>
+      <!--<dd>= @match.home_team.team.label %></dd>
+      <dt>Away team</dt>
+      <dd>= @match.away_team.team.label %></dd>
+      <dt>Venue</dt>
+      <dd>= @match.venue %></dd> -->
+
+    </dl>
   </div>
   <div class="col-md-12">
     <br>
-    <a href="/teams">Go back</a>
+    <a href="/matches">Go back</a>
     <br>
   </div>
 </div>

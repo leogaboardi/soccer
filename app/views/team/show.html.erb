@@ -16,15 +16,17 @@
   </div>
   <div class="col-md-8">
   <br>
-    <dt>Team name</dt>
-    <dd><%= @team.label %></dd>
-    <dt>System name</dt>
-    <dd><%= @team.name %></dd>
-    <dt>Crest URL</dt>
-    <dd><%= @team.logo %></dd>
+    <dl class="dl-horizontal">
+      <dt>Team name</dt>
+      <dd><%= @team.label %></dd>
+      <dt>System name</dt>
+      <dd><%= @team.name %></dd>
+      <dt>Crest URL</dt>
+      <dd><%= @team.crest %></dd>
+    </dl>
   </div>
   <div class="col-md-4">
-    <img src="<%= @team.logo %>">
+    <img src="<%= @team.crest %>">
   </div>
   <div class="col-md-12">
     <br>

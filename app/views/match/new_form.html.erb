@@ -1,44 +1,121 @@
 <div class="row">
   <div class="col-md-12">
-    <h1>Add new team</h1>
+    <h1>Add new match</h1>
     <br>
-    <form action="/create_team" class="form-horizontal">
-      <!-- Label and input for team name -->
+    <form action="/create_match" class="form-horizontal">
+
+    <!-- tournament -->
       <div class="form-group">
-        <label for="label" class="col-sm-3 control-label">
-          Team name
+        <label for="tournament" class="col-sm-3 control-label">
+          Tournament
         </label>
         <div class="col-sm-9">
-          <input type="text" id="label" name="label" placeholder="Team name (e.g. São Paulo)" class="form-control">
+          <div class="dropdown customizeMenu">
+            <select class="form-control" id="tournament" name="tournament">
+              <option>Campeonato brasileiro - Serie A</option>
+            </select>
+          </div>
         </div>
       </div>
 
-      <!-- Label and input for system name -->
+      <!-- round -->
       <div class="form-group">
-        <label for="name" class="col-sm-3 control-label">
-          System name
+        <label for="round" class="col-sm-3 control-label">
+          Round
         </label>
-        <div class="col-sm-9">
-          <input type="text" id="name" name="name" placeholder="System name (e.g. sao_paulo_sp)" class="form-control">
+        <div class="col-sm-3">
+          <input type="text" id="round" name="round" placeholder="Round" class="form-control">
         </div>
       </div>
 
-      <!-- Label and input for image_url -->
-      <div class="form-group">
-        <label for="image_url" class="col-sm-3 control-label">
-          Crest url
+      <!-- date -->
+     <div class="form-group">
+        <label for="date" class="col-sm-3 control-label">
+          Date
         </label>
-        <div class="col-sm-9">
-          <input type="text" id="image_url" name="image_url" placeholder="Crest url" class="form-control">
+        <div class="col-sm-3">
+          <input type="date" id="date" name="date" placeholder="mm/dd/yyyy" class="form-control">
         </div>
       </div>
 
+      <!-- time -->
+      <div class="form-group">
+        <label for="time" class="col-sm-3 control-label">Time of day</label>
+        <div class="col-sm-9">
+          <div class="dropdown customizeMenu">
+            <select class="form-control" id="time" name="time">
+              <option>4:00 PM</option>
+              <option>6:30 PM</option>
+              <option>10:00 PM</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- venue -->
+      <div class="form-group">
+        <label for="venue" class="col-sm-3 control-label">Venue</label>
+        <div class="col-sm-9">
+          <input type="text" id="venue" name="venue" placeholder="Venue" class="form-control">
+        </div>
+      </div>
+
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Home team</div>
+        <div class="panel-body">
+          <!-- home_team_id -->
+          <div class="form-group">
+            <label for="home_team_id" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9">
+              <div class="dropdown customizeMenu">
+                <%= select_tag(:home_team_id, options_from_collection_for_select(Team.all, :id, :label, "1"), :class => "form-control") %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="home_goals" class="col-sm-3 control-label">Score</label>
+            <div class="col-sm-2">
+            <input type="number" id="round" name="round" min="0" max="99" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Away team</div>
+        <div class="panel-body">
+          <!-- away_team_id -->
+          <div class="form-group">
+            <label for="away_team_id" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9">
+              <div class="dropdown customizeMenu">
+              <%= select_tag(:away_team_id, options_from_collection_for_select(Team.all, :id, :label, "1"), :class => "form-control") %>
+            </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="away_goals" class="col-sm-3 control-label">Score</label>
+            <div class="col-sm-2">
+            <input type="number" id="round" name="round" min="0" max="99" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CREATE BUTTON -->
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-9">
-          <input type="submit" value="Create Team" class="btn btn-primary">
+          <input type="submit" value="Create match" class="btn btn-primary">
         </div>
       </div>
+
     </form>
+    <div class="col-md-12">
+      <br>
+      <a href="/matches">Go back</a>
+      <br>
+    </div>
   </div>
 </div>
-

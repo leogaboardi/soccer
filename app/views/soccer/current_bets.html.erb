@@ -1,19 +1,22 @@
 <div class="row">
-<div class="alert alert-success" role="alert"><%= @bet %>Thanks! Check what others think about this match!</div>
+<div class="alert alert-success" role="alert">Thanks! Check what others think about this match!</div>
 </div>
 <!-- Match panel starts -->
 <div class="row">
-  <h2>Campeonato Brasileiro 2014 - 1st division</h2>
-  <h2>Round 25</h2>
-  <h3>Sep 28th, 2014 6:30pm - Orlando Scarpelli (SC)</h3>
+  <h2><%= @match.tournament %></h2>
+  <h2><%= @match.round %></h2>
+  <h3><%= @date %></h3>
+  <h3>Match current id: <%= @match.id %></h3>
 </div>
 
-  <div class="row" id="containerCenter">
+<div class="row" id="containerCenter">
   <div class="row">
     <div class="row">
       <div class="col-xs-4">
-      <img src="http://cdn.cbf.com.br/cbf/imagens/escudos/00010sc.jpg">
-
+      <img src=<%= @match.team.logo %>>
+      <br>
+      <p class="text-center"><%= @match.team.label %></p>
+      <p class="text-center">Count of bets: <%= Bet.all.count %></p>
       </div>
       <div class="col-xs-1">
         <p class="score"></p>
@@ -34,7 +37,7 @@
 <!--Vote bars start -->
 <div class="row">
   <div class="row">
-    <h3>What everyone is betting</h3>
+    <h3>What everyone is betting </h3>
   </div>
   <div class="row">
     <div class="col-sm-3">
@@ -42,8 +45,8 @@
     </div>
     <div class="col-xs-8">
       <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-          60%
+        <div class="progress-bar" role="progressbar" aria-valuenow="100%" aria-valuemin="0" aria-valuemax="100" style="width: <%= ((Bet.all.count-10).to_f/Bet.all.count)*100 %>%">
+          <%= (((Bet.all.count-10).to_f/Bet.all.count)*100).round(0) %>%
         </div>
       </div>
     </div>
@@ -82,6 +85,8 @@
     </div>
   </div>
 </div>
+
+<!--
 <div class="row">
   <div class="row">
     <h3>What your friends are betting</h3>
@@ -181,7 +186,10 @@
     </div>
   </div>
 </div>
+-->
 <!--Vote bars end -->
-<div class="row">
-  <button type="button" class="btn btn-primary">Check another match!</button>
+<div class="col-md-12">
+  <br>
+  <a href="/current">Check another match</a>
+  <br>
 </div>

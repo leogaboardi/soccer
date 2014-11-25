@@ -1,18 +1,29 @@
 Rails.application.routes.draw do
 
-  get("/", { :controller => "soccer", :action => "index" })
+  ##### ##### ##### ##### ##### ##### ##### #####
+  ##### Routes for the "front end" (what any user can see)
+  ##### ##### ##### ##### ##### ##### ##### #####
 
+  # READ MATCH WITHOUT BET
+  get("/current/:id", { :controller => "soccer", :action => "current_matches" })
+  get("/current/:match_id/:user_id/create_bet", { :controller => "soccer", :action => "create_bet" })
 
-  get("/current/:current_id", { :controller => "soccer", :action => "current_matches" })
-  get("/current_bets/:current_id", { :controller => "soccer", :action => "current_bets" })
+  # READ MATCH WITH BET
+  get("/current/:id/bets", { :controller => "soccer", :action => "current_bets" })
 
-
+  # READ MATCH WITH RESULT
   get("/results/:page", { :controller => "soccer", :action => "results_index" })
 
   # Routes for static pages
+  get("/", { :controller => "soccer", :action => "index" })
   get("/faq", { :controller => "soccer",  :action => "faq" })
   get("/todo", {:controller => "soccer",  :action =>  "todo"})
   get("/about", {:controller => "soccer",  :action =>  "about"})
+  get("/howitworks", {:controller => "soccer",  :action =>  "howitworks"})
+
+  ##### ##### ##### ##### ##### ##### ##### #####
+  ##### Routes for the admin only
+  ##### ##### ##### ##### ##### ##### ##### #####
 
   ##### ##### ##### ##### ##### ##### ##### #####
   ##### Routes for the Team resource:
@@ -66,8 +77,27 @@ Rails.application.routes.draw do
 
   # UPDATE
   get('/matches/:id/edit_form', { :controller => 'match', :action => 'edit_form' })
-  get('/update_matchs/:id', { :controller => 'match', :action => 'update_row' })
+  get('/update_matches/:id', { :controller => 'match', :action => 'update_row' })
 
   # DELETE
   get('/matches/:id/delete', { :controller => 'match', :action => 'destroy' })
+
+  ##### ##### ##### ##### ##### ##### ##### #####
+  ##### Routes for the bet resource:
+  ##### ##### ##### ##### ##### ##### ##### #####
+
+  # CREATE
+  get('/bets/new_form', { :controller => 'bet', :action => 'new_form' })
+  get('/create_bet', { :controller => 'bet', :action => 'create_row' })
+
+  # READ
+  get('/bets', { :controller => 'bet', :action => 'index' })
+  get('/bets/:id', { :controller => 'bet', :action => 'show' })
+
+  # UPDATE
+  get('/bets/:id/edit_form', { :controller => 'bet', :action => 'edit_form' })
+  get('/update_bet/:id', { :controller => 'bet', :action => 'update_row' })
+
+  # DELETE
+  get('/bets/:id/delete', { :controller => 'bet', :action => 'destroy' })
 end

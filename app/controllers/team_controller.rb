@@ -17,7 +17,7 @@ class TeamController < ApplicationController
     @team = Team.new
     @team.name = params[:name]
     @team.label = params[:label]
-    @team.logo = params[:image_url]
+    @team.crest = params[:crest_url]
 
     @team.save
     @alert_create = true
@@ -33,7 +33,7 @@ class TeamController < ApplicationController
     @team = Team.find(params[:id])
     @team.name = params[:name]
     @team.label = params[:label]
-    @team.logo = params[:image_url]
+    @team.crest = params[:crest_url]
 
     @team.save
     @alert_update = true

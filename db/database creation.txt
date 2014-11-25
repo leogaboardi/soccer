@@ -2,7 +2,8 @@
 #rails g model team name:string label:string logo:string
 #rails g model match tournament:string round:integer date:date time:time venue:string home_team_id:integer away_team_id:integer home_goal:integer away_goal:integer outcome:integer user_id:integer
 #rails g model bet match_id:integer user_id:integer guess:integer
-
+#rails g model home_team match_id:integer home_team_id:integer
+#rails g model away_team match_id:integer away_team_id:integer
 
 #:primary_key, :string, :text, :integer, :float, :decimal, :datetime, :timestamp,
 :time, :date, :binary, :boolean, :references

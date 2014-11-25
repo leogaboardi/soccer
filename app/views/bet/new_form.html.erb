@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Add new bet</h1>
+    <br>
+    <form action="/create_bet" class="form-horizontal">
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="col-sm-3 control-label">
+          User ID
+        </label>
+        <div class="col-sm-9">
+          <input type="text" id="user_id" name="user_id" placeholder="User ID" class="form-control">
+        </div>
+      </div>
+
+      <!-- Label and input for match_id -->
+      <div class="form-group">
+        <label for="match_id" class="col-sm-3 control-label">
+          Match ID
+        </label>
+        <div class="col-sm-9">
+          <input type="text" id="match_id" name="match_id" placeholder="Match ID" class="form-control">
+        </div>
+      </div>
+
+      <!-- Label and input for guess -->
+      <div class="form-group">
+        <label for="guess" class="col-sm-3 control-label">
+          Guess
+        </label>
+        <div class="col-sm-9">
+          <input type="text" id="guess" name="guess" placeholder="Match ID" class="form-control">
+        </div>
+      </div>
+
+      <!-- CREATE BUTTON -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-9">
+          <input type="submit" value="Create bet" class="btn btn-primary">
+        </div>
+      </div>
+
+    </form>
+
+    <div class="col-md-12">
+      <br>
+      <a href="/bets">Go back</a>
+      <br>
+    </div>
+  </div>
+</div>
+

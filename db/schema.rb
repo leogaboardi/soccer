@@ -11,12 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118044516) do
+ActiveRecord::Schema.define(version: 20141125055229) do
+
+  create_table "away_teams", force: true do |t|
+    t.integer  "match_id"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "bets", force: true do |t|
     t.integer  "match_id"
     t.integer  "user_id"
-    t.integer  "guess"
+    t.integer  "bet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "home_teams", force: true do |t|
+    t.integer  "match_id"
+    t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,7 +54,7 @@ ActiveRecord::Schema.define(version: 20141118044516) do
   create_table "teams", force: true do |t|
     t.string   "name"
     t.string   "label"
-    t.string   "logo"
+    t.string   "crest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

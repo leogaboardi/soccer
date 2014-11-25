@@ -3,7 +3,7 @@ class CreateTeams < ActiveRecord::Migration
     create_table :teams do |t|
       t.string :name
       t.string :label
-      t.string :logo
+      t.string :crest
 
       t.timestamps
     end

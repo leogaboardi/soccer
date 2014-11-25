@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <h1>Manage bets</h1>
+    <p><a href="/bets/new_form" class="btn btn-primary">Add new bet</a></p>
+    <table class="table table-striped">
+      <tr>
+        <th>User</th>
+        <th>Match</th>
+        <th>Bet</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @bet.each do |bet| %>
+      <tr>
+        <td ><%= bet.user_id %></td>
+        <td ><%= bet.match_id %></td>
+        <td><%= bet.guess %></td>
+        <td><a href="bets/<%= bet.id %>">View</a></td>
+        <td><a href="bets/<%= bet.id %>/edit_form">Edit</a></td>
+        <td><a href="bets/<%= bet.id %>/delete">Delete</a></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
