@@ -24,7 +24,7 @@
           Round
         </label>
         <div class="col-sm-3">
-          <input type="text" id="round" name="round" placeholder="Round" class="form-control">
+          <input type="number" id="round" name="round" placeholder="Round" class="form-control" min="1" max="38">
         </div>
       </div>
 
@@ -69,7 +69,7 @@
             <label for="home_team_id" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
               <div class="dropdown customizeMenu">
-                <%= select_tag(:home_team_id, options_from_collection_for_select(Team.all, :id, :label, "1"), :class => "form-control") %>
+                <%= select_tag(:home_team_id, options_from_collection_for_select(Team.order("label"), :id, :label), :class => "form-control") %>
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@
             <label for="away_team_id" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
               <div class="dropdown customizeMenu">
-              <%= select_tag(:away_team_id, options_from_collection_for_select(Team.all, :id, :label, "1"), :class => "form-control") %>
+              <%= select_tag(:away_team_id, options_from_collection_for_select(Team.order("label"), :id, :label), :class => "form-control") %>
             </div>
             </div>
           </div>

@@ -23,14 +23,22 @@
       <tr>
         <td><%= match.tournament %></td>
         <td><%= match.round %></td>
-        <td><%= match.date %></td>
-        <td><%= match.time %></td>
+        <td>
+        <% if !match.date.nil?  %>
+          <%= match.date.strftime("%e/%m/%y") %>
+        <% end  %>
+        </td>
+        <td>
+        <% if !match.time.nil?  %>
+          <%= match.time.strftime("%H:%M") %>
+        <% end  %>
+        </td>
         <td><%= match.venue %></td>
-        <td><img src="<%= match.home_team_id %>"></td>
+        <td><img src="<%= match.home_team.crest %>"></td>
         <td></td>
         <td >X</td>
         <td></td>
-        <td><%= match.away_team_id %></td>
+        <td><img src="<%= match.away_team.crest %>"></td>
         <td><a href="matches/<%= match.id %>">View</a></td>
         <td><a href="matches/<%= match.id %>/edit_form">Edit</a></td>
         <td><a href="matches/<%= match.id %>/delete">Delete</a></td>

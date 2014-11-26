@@ -16,12 +16,15 @@ class UserController < ApplicationController
   def create_row
     @user = User.new
     @user.username = params[:username]
-    @user.email = params[:email]
+    @user.email = params[:email].downcase
     @user.admin = params[:admin]
 
-    @user.save
-    @alert_create = true
-    render("show")
+    if @user.save
+      redirect_to "/users", :notice => "Favorite created successfully."
+    else
+      render "new_form"
+    end
+
   end
 
   def edit_form

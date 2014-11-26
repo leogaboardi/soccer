@@ -23,27 +23,21 @@ class MatchController < ApplicationController
     @match.date = params[:date]
     @match.time = params[:time]
     @match.venue = params[:venue]
-
-    @home_team = HomeTeam.new
-    @home_team.team_id = params[:home_team_id]
-    @home_team.match_id = @match.id
-    @match.home_team_id = @home_team.id
-
-    @away_team = AwayTeam.new
-    @away_team.team_id = params[:away_team_id]
-    @away_team.match_id = @match.id
-    @match.away_team_id = @away_team.id
-
+    @match.home_team_id = params[:home_team_id]
+    @match.away_team_id = params[:away_team_id]
     @match.home_goal = params[:home_goal]
     @match.away_goal = params[:away_goal]
     #@match.user_id =
     #@match.outcome =
 
-    @home_team.save
-    @away_team.save
     @match.save
     @alert_create = true
-    render("show")
+
+    if @match.save
+      redirect_to "/matches", :notice => "Favorite created successfully."
+    else
+      render "new_form"
+    end
 
   end
 
