@@ -6,10 +6,12 @@
       <!-- Label and input for user_id -->
       <div class="form-group">
         <label for="user_id" class="col-sm-3 control-label">
-          User ID
+          Username
         </label>
         <div class="col-sm-9">
-          <input type="text" id="user_id" name="user_id" placeholder="User ID" class="form-control">
+          <div class="dropdown customizeMenu">
+            <%= select_tag(:user_id, options_from_collection_for_select(User.order("username"), :id, :username), :class => "form-control") %>
+          </div>
         </div>
       </div>
 
@@ -19,17 +21,24 @@
           Match ID
         </label>
         <div class="col-sm-9">
-          <input type="text" id="match_id" name="match_id" placeholder="Match ID" class="form-control">
+          <div class="dropdown customizeMenu">
+            <%= select_tag(:match_id, options_from_collection_for_select(Match.where(:outcome => !nil).order("match_on"), :id, :id), :class => "form-control") %>
+          </div>
         </div>
       </div>
 
-      <!-- Label and input for guess -->
+      <!-- Label and input for bet -->
       <div class="form-group">
-        <label for="guess" class="col-sm-3 control-label">
-          Guess
+        <label for="bet" class="col-sm-3 control-label">
+          Bet
         </label>
         <div class="col-sm-9">
-          <input type="text" id="guess" name="guess" placeholder="Match ID" class="form-control">
+          <!--<input type="text" id="bet" name="bet" placeholder="Bet" class="form-control">-->
+            <select class="form-control" id="bet" name="bet">
+              <option value="1">Home team victory</option>
+              <option value="0">Draw</option>
+              <option value="-1">Away team victory</option>
+            </select>
         </div>
       </div>
 

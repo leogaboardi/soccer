@@ -1,16 +1,29 @@
 <div class="row">
   <h2><%= @match.tournament %></h2>
-  <h2><%= @match.round %></h2>
-  <h3><%= @date %></h3>
-  <h3>Match current id: <%= @current_id %></h3>
+  <% if !@match.round.nil?  %>
+  <h2>
+    Round <%= @match.round %>
+  </h2>
+  <% end  %>
+  <h3>
+        <% if !@match.match_on.nil?  %>
+          <%= @match.match_on.strftime("%e/%m/%y") %> -
+        <% end  %>
+
+        <% if !@match.match_at.nil?  %>
+          <%= @match.match_at.strftime("%H:%M") %>
+        <% end  %>
+
+  </h3>
+  <h3>Match id: <%= @match.id %></h3>
 </div>
 <div class="row" id="containerCenter">
   <div class="row">
     <div class="row">
       <div class="col-xs-4">
-      <img src=<%= @match.home_team.team.crest %>>
+      <img src=<%= @match.home_team.crest %>>
       <br>
-      <p class="text-center"><%= @match.home_team.team.label %></p>
+      <p class="text-center"><%= @match.home_team.label %></p>
       </div>
       <div class="col-xs-1">
         <p class="score"><%= @match.home_goal %></p>
@@ -22,9 +35,9 @@
         <p class="score"><%= @match.away_goal %></p>
       </div>
       <div class="col-xs-4">
-        <img src=<%= @match.away_team.team.crest %>>
+        <img src=<%= @match.away_team.crest %>>
         <br>
-        <p class="text-center"><%= @match.away_team.team.label %></p>
+        <p class="text-center"><%= @match.away_team.label %></p>
       </div>
     </div>
     <div class="row">

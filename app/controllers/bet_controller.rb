@@ -17,7 +17,7 @@ class BetController < ApplicationController
     @bet = Bet.new
     @bet.match_id = params[:match_id]
     @bet.user_id = params[:user_id]
-    @bet.guess = params[:guess]
+    @bet.bet = params[:bet]
 
     @bet.save
     @alert_create = true
@@ -33,7 +33,7 @@ class BetController < ApplicationController
     @bet = Bet.find(params[:id])
     @bet.match_id = params[:match_id]
     @bet.user_id = params[:user_id]
-    @bet.guess = params[:guess]
+    @bet.bet = params[:bet]
 
     @bet.save
     @alert_update = true

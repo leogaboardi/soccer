@@ -7,22 +7,30 @@
       <dd><%= @match.round %></dd>
       <dt>Match date</dt>
       <dd>
-        <% if !@match.date.nil?  %>
-          <%= @match.date.strftime("%e/%m/%y") %>
+        <% if !@match.match_on.nil?  %>
+          <%= @match.match_on.strftime("%e/%m/%y") %>
         <% end  %>
       </dd>
       <dt>Match starting time</dt>
       <dd>
-        <% if !@match.time.nil?  %>
-          <%= @match.time.strftime("%H:%M") %>
+        <% if !@match.match_at.nil?  %>
+          <%= @match.match_at.strftime("%H:%M") %>
         <% end  %>
       </dd>
       <dt>Match venue</dt>
       <dd><%= @match.venue %></dd>
       <dt>Home team</dt>
       <dd><%= @match.home_team.label %></dd>
+      <dt>Home team score</dt>
+      <dd><%= @match.home_goal %></dd>
       <dt>Away team</dt>
       <dd><%= @match.away_team.label %></dd>
+      <dt>Away team score</dt>
+      <dd><%= @match.away_goal %></dd>
+      <dt>Outcome</dt>
+      <dd><%= @match.outcome %></dd>
+      <dt>User id</dt>
+      <dd><%= @match.user_id %></dd>
 
     </dl>
   </div>

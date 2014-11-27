@@ -4,6 +4,16 @@
     <br>
     <form action="/update_matches/<%= @match.id %>'" class="form-horizontal">
 
+    <!-- user_id -->
+      <div class="form-group">
+        <label for="user_id" class="col-sm-3 control-label">
+          user_id
+        </label>
+        <div class="col-sm-3">
+          <input type="number" id="user_id" name="user_id" value="<%= @match.user_id %>" class="form-control">
+        </div>
+      </div>
+
     <!-- tournament -->
       <div class="form-group">
         <label for="tournament" class="col-sm-3 control-label">
@@ -12,7 +22,7 @@
         <div class="col-sm-9">
           <div class="dropdown customizeMenu">
             <select class="form-control" id="tournament" name="tournament" value="<%= @match.tournament %>">
-              <option>Campeonato brasileiro - Serie A</option>
+              <option>Campeonato Brasileiro - Série A</option>
             </select>
           </div>
         </div>
@@ -24,26 +34,26 @@
           Round
         </label>
         <div class="col-sm-3">
-          <input type="text" id="round" name="round" placeholder="Round" class="form-control" value="<%= @match.round %>">
+          <input type="number" id="round" name="round" class="form-control" value="<%= @match.round %>" min="1" max="38">
         </div>
       </div>
 
-      <!-- date -->
+      <!-- match_on -->
      <div class="form-group">
-        <label for="date" class="col-sm-3 control-label">
+        <label for="match_on" class="col-sm-3 control-label">
           Date
         </label>
         <div class="col-sm-3">
-          <input type="date" id="date" name="date" placeholder="mm/dd/yyyy" class="form-control" value="<%= @match.date %>">
+          <input type="match_on" id="match_on" name="match_on" placeholder="mm/dd/yyyy" class="form-control" value="<%= @match.match_on %>">
         </div>
       </div>
 
-      <!-- time -->
+      <!-- match_at -->
       <div class="form-group">
-        <label for="time" class="col-sm-3 control-label">Time of day</label>
+        <label for="match_at" class="col-sm-3 control-label">Time of day</label>
         <div class="col-sm-9">
           <div class="dropdown customizeMenu">
-            <select class="form-control" id="time" name="time" >
+            <select class="form-control" id="match_at" name="match_at" >
               <option>4:00 PM</option>
               <option>6:30 PM</option>
               <option>10:00 PM</option>
@@ -69,15 +79,15 @@
             <label for="home_team_id" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
               <div class="dropdown customizeMenu">
-                <%= select_tag(:home_team_id, options_from_collection_for_select(Team.all, :id, :label, "1"), :class => "form-control") %>
+                <%= select_tag(:home_team_id, options_from_collection_for_select(Team.all, :id, :label, @match.home_team_id), :class => "form-control") -%>
               </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="home_goals" class="col-sm-3 control-label">Score</label>
+            <label for="home_goal" class="col-sm-3 control-label">Score</label>
             <div class="col-sm-2">
-            <input type="number" id="round" name="round" min="0" max="99" class="form-control" value="<%= @match.home_goal %>">
+            <input type="number" id="home_goal" name="home_goal" min="0" max="99" class="form-control" value="<%= @match.home_goal %>">
             </div>
           </div>
         </div>
@@ -91,15 +101,15 @@
             <label for="away_team_id" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
               <div class="dropdown customizeMenu">
-              <%= select_tag(:away_team_id, options_from_collection_for_select(Team.all, :id, :label, "1"), :class => "form-control") %>
+              <%= select_tag(:away_team_id, options_from_collection_for_select(Team.all, :id, :label, @match.away_team_id), :class => "form-control") %>
             </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="away_goals" class="col-sm-3 control-label">Score</label>
+            <label for="away_goal" class="col-sm-3 control-label">Score</label>
             <div class="col-sm-2">
-            <input type="number" id="round" name="round" min="0" max="99" class="form-control" value="<%= @match.away_goal %>">
+            <input type="number" id="away_goal" name="away_goal" min="0" max="99" class="form-control" value="<%= @match.away_goal %>">
             </div>
           </div>
         </div>

@@ -3,8 +3,8 @@ class CreateMatches < ActiveRecord::Migration
     create_table :matches do |t|
       t.string :tournament
       t.integer :round
-      t.date :date
-      t.time :time
+      t.date :match_on
+      t.time :match_at
       t.string :venue
       t.integer :home_team_id
       t.integer :away_team_id

@@ -7,8 +7,6 @@ class MatchController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    @home_team = HomeTeam.find_by({:match_id => params[:id]})
-    @away_team = AwayTeam.find_by({:match_id => params[:id]})
   end
 
   def new_form
@@ -20,21 +18,27 @@ class MatchController < ApplicationController
 
     @match.tournament = params[:tournament]
     @match.round = params[:round]
-    @match.date = params[:date]
-    @match.time = params[:time]
+    @match.match_on = params[:match_on]
+    @match.match_at = params[:match_at]
     @match.venue = params[:venue]
     @match.home_team_id = params[:home_team_id]
     @match.away_team_id = params[:away_team_id]
     @match.home_goal = params[:home_goal]
     @match.away_goal = params[:away_goal]
-    #@match.user_id =
-    #@match.outcome =
+    @match.user_id = params[:user_id]
 
-    @match.save
-    @alert_create = true
+    if @match.home_goal!=nil and @match.home_goal!=nil
+      if @match.home_goal > @match.away_goal
+        @match.outcome = 1
+      elsif @match.home_goal < @match.away_goal
+        @match.outcome = -1
+      else
+        @match.outcome = 0
+      end
+    end
 
     if @match.save
-      redirect_to "/matches", :notice => "Favorite created successfully."
+      redirect_to "/matches", :notice => "Match created successfully."
     else
       render "new_form"
     end
@@ -49,18 +53,26 @@ class MatchController < ApplicationController
     @match = Match.find(params[:id])
     @match.tournament = params[:tournament]
     @match.round = params[:round]
-    @match.date = params[:date]
-    @match.time = params[:time]
+    @match.match_on = params[:match_on]
+    @match.match_at = params[:match_at]
     @match.venue = params[:venue]
     @match.home_team_id = params[:home_team_id]
     @match.away_team_id = params[:away_team_id]
     @match.home_goal = params[:home_goal]
     @match.away_goal = params[:away_goal]
-    #@match.user_id =
-    #@match.outcome =
+    @match.user_id = params[:user_id]
+
+    if @match.home_goal!=nil and @match.home_goal!=nil
+      if @match.home_goal > @match.away_goal
+        @match.outcome = 1
+      elsif @match.home_goal < @match.away_goal
+        @match.outcome = -1
+      else
+        @match.outcome = 0
+      end
+    end
 
     @match.save
-    @alert_update = true
     render("show")
 
   end

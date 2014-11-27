@@ -6,10 +6,12 @@
       <!-- Label and input for user_id -->
       <div class="form-group">
         <label for="user_id" class="col-sm-3 control-label">
-          User ID
+          Username
         </label>
         <div class="col-sm-9">
-          <input type="text" id="user_id" name="user_id" placeholder="User ID" class="form-control" value="<%= @bet.user_id %>">
+          <div class="dropdown customizeMenu">
+            <%= select_tag(:user_id, options_from_collection_for_select(User.order("username"), :id, :username, @bet.user_id), :class => "form-control") %>
+          </div>
         </div>
       </div>
 
@@ -19,17 +21,37 @@
           Match ID
         </label>
         <div class="col-sm-9">
-          <input type="text" id="match_id" name="match_id" placeholder="Match ID" class="form-control" value="<%= @bet.match_id %>">
+          <div class="dropdown customizeMenu">
+            <%= select_tag(:match_id, options_from_collection_for_select(Match.where(:outcome => !nil).order("match_on"), :id, :id, @bet.match_id), :class => "form-control") %>
+          </div>
         </div>
       </div>
 
-      <!-- Label and input for guess -->
+      <!-- Label and input for bet -->
       <div class="form-group">
-        <label for="guess" class="col-sm-3 control-label">
-          Guess
+        <label for="bet" class="col-sm-3 control-label">
+          Bet
         </label>
         <div class="col-sm-9">
-          <input type="text" id="guess" name="guess" placeholder="Match ID" class="form-control" value="<%= @bet.guess %>">
+          <!--<input type="text" id="bet" name="bet" placeholder="Match ID" class="form-control" value="<%= @bet.bet %>"> -->
+          <select class="form-control" id="bet" name="bet">
+              <option value="1"
+                <% if @bet.bet == 1 %>
+                  selected
+                <% end  %>
+              >Home team victory</option>
+
+              <option value="0"
+                <% if @bet.bet == 0 %>
+                  selected
+                <% end  %>
+              >Draw</option>
+              <option value="-1"
+                <% if @bet.bet == -1 %>
+                  selected
+                <% end  %>
+              >Away team victory</option>
+            </select>
         </div>
       </div>
 

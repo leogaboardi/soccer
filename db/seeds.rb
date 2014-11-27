@@ -9,18 +9,53 @@
 users = [
   {
     :username => "Leonardo",
-    :email => "leogaboardi@example.com".downcase
-    #:admin => true
+    :email => "leogaboardi@example.com".downcase,
+    :admin => true
   },
   {
     :username => "Batman",
-    :email => "bruce_wayne@example.com".downcase
-    #:admin => false
+    :email => "bruce_wayne@example.com".downcase,
+    :admin => true
+  },
+    {
+    :username => "Robin",
+    :email => "robin@example.com".downcase,
+    :admin => false
+  },
+    {
+    :username => "Joker",
+    :email => "joker@example.com".downcase,
+    :admin => false
+  },
+    {
+    :username => "Gordon",
+    :email => "gordon@example.com".downcase,
+    :admin => false
+  },
+    {
+    :username => "Penguin",
+    :email => "penguin@example.com".downcase,
+    :admin => false
+  },
+    {
+    :username => "Riddler",
+    :email => "riddler@example.com".downcase,
+    :admin => false
+  },
+  {
+    :username => "2 Faces",
+    :email => "2faces@example.com".downcase,
+    :admin => false
+  },
+  {
+    :username => "Poison Ivy",
+    :email => "poisonivy@example.com".downcase,
+    :admin => false
   },
   {
     :username => "John Doe",
-    :email => "jdoe@example.com".downcase
-    #:admin => false
+    :email => "jdoe@example.com".downcase,
+    :admin => false
   }
 ]
 
@@ -144,40 +179,305 @@ teams.each do |new_team|
 end
 
 matches = [
-#  {
-#    :tournament => "campeonato brasileiro"
-    #:round => 1
-    #:date => "11/25/2014"
-    #:time => "4:00 pm"
-   # :venue => "morumbi"
-    #:home_team_id => "1"
-    #:away_team_id => "2"
-  #},
-  #  {
-  #  :tournament => "campeonato brasileiro"
-    #:round => 1
-    #:date => "11/25/2014"
-    #:time => "4:00 pm"
- #   :venue => "maracanã"
-    #:home_team_id => "3"
-    #:away_team_id => "4"
-    #:home_goal => "1"
-    #:away_goal => "0"
-    #:outcome => "1"
-#  }
+  {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 37,
+    :match_on => "2014-11-29",
+    :match_at => "2000-01-01 19:30:00",
+    :venue => "Heriberto Hulse",
+    :home_team_id => 1,
+    :away_team_id => 2,
+    :user_id => 1
+  },
+
+  {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 37,
+    :match_on => "2014-11-29",
+    :match_at => "2000-01-01 19:30:00",
+    :venue => "Beira-Rio",
+    :home_team_id => "3",
+    :away_team_id => "4",
+    :user_id => 1
+  },
+
+  {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 37,
+    :match_on => "2014-11-29",
+    :match_at => "2000-01-01 21:00:00",
+    :venue => "Arena da Amazônia",
+    :home_team_id => "5",
+    :away_team_id => "6",
+    :user_id => 1
+  },
+
+  {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 37,
+    :match_on => "2014-11-30",
+    :match_at => "2000-01-01 17:00:00",
+    :venue => "Vila Belmiro",
+    :home_team_id => "7",
+    :away_team_id => "8",
+    :user_id => 1
+  },
+
+  {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 37,
+    :match_on => "2014-11-30",
+    :match_at => "2000-01-01 17:00:00",
+    :venue => "Arena Condá",
+    :home_team_id => "9",
+    :away_team_id => "10",
+    :user_id => 1
+  },
+
+  {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 37,
+    :match_on => "2014-11-30",
+    :match_at => "2000-01-01 17:00:00",
+    :venue => "Maracanã",
+    :home_team_id => "11",
+    :away_team_id => "12",
+    :user_id => 1
+  },
+
+  {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 37,
+    :match_on => "2014-11-30",
+    :match_at => "2000-01-01 17:00:00",
+    :venue => "Morumbi",
+    :home_team_id => "13",
+    :away_team_id => "14",
+    :user_id => 1
+  },
+
+  {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 37,
+    :match_on => "2014-11-30",
+    :match_at => "2000-01-01 19:30:00",
+    :venue => "Arena da Baixada",
+    :home_team_id => "15",
+    :away_team_id => "16",
+    :user_id => 1
+  },
+
+  {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 37,
+    :match_on => "2014-11-30",
+    :match_at => "2000-01-01 19:30:00",
+    :venue => "Independência",
+    :home_team_id => "17",
+    :away_team_id => "18",
+    :user_id => 1
+  },
+
+  {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 37,
+    :match_on => "2014-11-30",
+    :match_at => "2000-01-01 19:30:00",
+    :venue => "Fonte Nova",
+    :home_team_id => "19",
+    :away_team_id => "20",
+    :user_id => 1
+  },
+    {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 36,
+    :match_on => "2014-11-22",
+    :match_at => "2000-01-01 19:30:00",
+    :venue => "Beira Rio",
+    :home_team_id => "3",
+    :away_team_id => "17",
+    :home_goal => 2,
+    :away_goal => 1,
+    :outcome => 1,
+    :user_id => 1
+  },
+    {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 36,
+    :match_on => "2014-11-22",
+    :match_at => "2000-01-01 21:00:00",
+    :venue => "Fonte Nova",
+    :home_team_id => "19",
+    :away_team_id => "15",
+    :home_goal => 1,
+    :away_goal => 2,
+    :outcome => -1,
+    :user_id => 1
+  },
+    {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 36,
+    :match_on => "2014-11-23",
+    :match_at => "2000-01-01 17:00:00",
+    :venue => "Castelão/MA",
+    :home_team_id => 5,
+    :away_team_id => 1,
+    :home_goal => 1,
+    :away_goal => 1,
+    :outcome => 0,
+    :user_id => 1
+  },
+    {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 36,
+    :match_on => "2014-11-23",
+    :match_at => "2000-01-01 17:00:00",
+    :venue => "Arena Pantanal",
+    :home_team_id => 7,
+    :away_team_id => 13,
+    :home_goal => 0,
+    :away_goal => 1,
+    :outcome => -1,
+    :user_id => 1
+  },
+    {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 36,
+    :match_on => "2014-11-23",
+    :match_at => "2000-01-01 17:00:00",
+    :venue => "Arena Pernambuco",
+    :home_team_id => 2,
+    :away_team_id => 11,
+    :home_goal => 2,
+    :away_goal => 2,
+    :outcome => 0,
+    :user_id => 1
+  },
+    {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 36,
+    :match_on => "2014-11-23",
+    :match_at => "2000-01-01 17:00:00",
+    :venue => "Orlando Scarpelli",
+    :home_team_id => 14,
+    :away_team_id => 6,
+    :home_goal => 2,
+    :away_goal => 0,
+    :outcome => 1,
+    :user_id => 1
+  },
+    {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 36,
+    :match_on => "2014-11-23",
+    :match_at => "2000-01-01 17:00:00",
+    :venue => "Mineirão",
+    :home_team_id => 10,
+    :away_team_id => 16,
+    :home_goal => 2,
+    :away_goal => 1,
+    :outcome => 1,
+    :user_id => 2
+  },
+    {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 36,
+    :match_on => "2014-11-23",
+    :match_at => "2000-01-01 19:30:00",
+    :venue => "Arena Condá",
+    :home_team_id => 9,
+    :away_team_id => 8,
+    :home_goal => 2,
+    :away_goal => 0,
+    :outcome => 1,
+    :user_id => 2
+  },
+    {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 36,
+    :match_on => "2014-11-23",
+    :match_at => "2000-01-01 19:30:00",
+    :venue => "Arena Corinthians",
+    :home_team_id => 12,
+    :away_team_id => 20,
+    :home_goal => 1,
+    :away_goal => 0,
+    :outcome => 1,
+    :user_id => 2
+  },
+    {
+    :tournament => "Campeonato Brasileiro - Série A",
+    :round => 36,
+    :match_on => "2014-11-23",
+    :match_at => "2000-01-01 19:30:00",
+    :venue => "Couto Pereira",
+    :home_team_id => 18,
+    :away_team_id => 4,
+    :home_goal => 2,
+    :away_goal => 0,
+    :outcome => 1,
+    :user_id => 1
+  }
+
 ]
 
 matches.each do |new_match|
   match = Match.new
   match.tournament = new_match[:tournament]
   match.round = new_match[:round]
-  match.date = new_match[:date]
-  match.time = new_match[:time]
+  match.match_on = new_match[:match_on]
+  match.match_at = new_match[:match_at]
   match.venue = new_match[:venue]
   match.home_team_id = new_match[:home_team_id]
   match.away_team_id = new_match[:away_team_id]
   match.home_goal = new_match[:home_goal]
   match.away_goal = new_match[:away_goal]
   match.outcome = new_match[:outcome]
+  match.user_id = new_match[:user_id]
   match.save
+end
+
+bets = [
+  {:match_id => 12,  :user_id => 1, :bet => 0},
+  {:match_id => 12,  :user_id => 2, :bet => 1},
+  {:match_id => 12,  :user_id => 3, :bet => 1},
+  {:match_id => 12,  :user_id => 4, :bet => 1},
+  {:match_id => 12,  :user_id => 5, :bet => 0},
+  {:match_id => 12,  :user_id => 6, :bet => 0},
+  {:match_id => 12,  :user_id => 7, :bet => -1},
+  {:match_id => 12,  :user_id => 8, :bet => -1},
+  {:match_id => 12,  :user_id => 9, :bet => 1},
+  {:match_id => 12,  :user_id => 10, :bet => 0},
+  {:match_id => 13,  :user_id => 1, :bet => 1},
+  {:match_id => 13,  :user_id => 2, :bet => 1},
+  {:match_id => 13,  :user_id => 3, :bet => 1},
+  {:match_id => 13,  :user_id => 4, :bet => 1},
+  {:match_id => 13,  :user_id => 5, :bet => 1},
+  {:match_id => 13,  :user_id => 6, :bet => 1},
+  {:match_id => 13,  :user_id => 7, :bet => 1},
+  {:match_id => 13,  :user_id => 8, :bet => 1},
+  {:match_id => 13,  :user_id => 9, :bet => 1},
+  {:match_id => 13,  :user_id => 10, :bet => 1},
+  {:match_id => 1,  :user_id => 1, :bet => 0},
+  {:match_id => 1,  :user_id => 2, :bet => 0},
+  {:match_id => 1,  :user_id => 3, :bet => -1},
+  {:match_id => 1,  :user_id => 4, :bet => -1},
+  {:match_id => 1,  :user_id => 5, :bet => -1},
+  {:match_id => 1,  :user_id => 6, :bet => 1},
+  {:match_id => 1,  :user_id => 7, :bet => 0},
+  {:match_id => 2,  :user_id => 1, :bet => 1},
+  {:match_id => 2,  :user_id => 2, :bet => 1},
+  {:match_id => 2,  :user_id => 3, :bet => 1},
+  {:match_id => 2,  :user_id => 4, :bet => 0},
+  {:match_id => 2,  :user_id => 5, :bet => -1},
+  {:match_id => 2,  :user_id => 6, :bet => -1},
+  {:match_id => 2,  :user_id => 7, :bet => 1}
+]
+
+bets.each do |new_bet|
+  bet = Bet.new
+  bet.user_id = new_bet[:user_id]
+  bet.match_id = new_bet[:match_id]
+  bet.bet = new_bet[:bet]
+  bet.save
 end

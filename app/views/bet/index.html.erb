@@ -14,9 +14,18 @@
       </tr>
       <% @bet.each do |bet| %>
       <tr>
-        <td ><%= bet.user_id %></td>
-        <td ><%= bet.match_id %></td>
-        <td><%= bet.guess %></td>
+        <td ><%= bet.user.username %></td>
+        <td ><%= bet.match.home_team.label %> x <%= bet.match.away_team.label %> (<%= bet.match.match_on%>)</td>
+        <td>
+          <% case bet.bet %>
+          <% when 1 %>
+          Home victory
+          <% when 0 %>
+          Draw
+          <% when -1 %>
+          Away victory
+          <% end %>
+        </td>
         <td><a href="bets/<%= bet.id %>">View</a></td>
         <td><a href="bets/<%= bet.id %>/edit_form">Edit</a></td>
         <td><a href="bets/<%= bet.id %>/delete">Delete</a></td>
