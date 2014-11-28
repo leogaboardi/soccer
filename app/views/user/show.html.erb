@@ -25,6 +25,30 @@
       <dd><%= @user.admin %></dd>
     </dl>
   </div>
+
+    <div class="col-md-8 col-md-offset-2">
+    <table class="table table-striped">
+        <tr>
+          <th>Match</th>
+          <th>Bet</th>
+        </tr>
+        <%  @user.bets.each do |bet|  %>
+        <tr>
+        <td> <%= bet.match.home_team.label %> x <%= bet.match.away_team.label %> (<%= bet.match.match_on%>)</td>
+        <td>
+          <% case bet.bet %>
+            <% when 1 %>
+            <%= bet.match.home_team.label %>
+          <% when 0 %>
+            Draw
+          <% when -1 %>
+            <%= bet.match.away_team.label %>
+          <% end %>
+         </td>
+        </tr>
+        <% end %>
+    </table>
+  </div>
   <div class="col-md-12">
     <br>
     <a href="/users">Go back</a>

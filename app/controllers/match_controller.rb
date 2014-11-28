@@ -7,6 +7,7 @@ class MatchController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
+
   end
 
   def new_form

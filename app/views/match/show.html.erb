@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-md-8">
+    <h4>Match information</h4>
     <dl class="dl-horizontal">
       <dt>Tournament</dt>
       <dd><%= @match.tournament %></dd>
@@ -33,6 +34,49 @@
       <dd><%= @match.user_id %></dd>
 
     </dl>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+  <h4>Bet statistics</h4>
+  <dl class="dl-horizontal">
+      <dt>Total number of bets</dt>
+      <dd><%= @match.bets.count %></dd>
+      <% if @match.bets.count>0 %>
+        <dt>Home team bets</dt>
+        <dd><%= @match.bets.where({:bet => 1}).count %> (<%= (@match.bets.where({:bet => 1}).count.*100.0 / @match.bets.count).round(1) %>%)</dd>
+        <dt>Draw bets</dt>
+        <dd><%= @match.bets.where({:bet => 0}).count %> (<%= (@match.bets.where({:bet => 0}).count.*100.0 / @match.bets.count).round(1) %>%)</dd>
+        <dt>Away bets</dt>
+        <dd><%= @match.bets.where({:bet => -1}).count %> (<%= (@match.bets.where({:bet => -1}).count.*100.0 / @match.bets.count).round(1) %>%)</dd>
+      <% end %>
+  </dl>
+  </div>
+</div>
+  <br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <table class="table table-striped">
+        <tr>
+          <th>Username</th>
+          <th>Bet</th>
+        </tr>
+        <%  @match.bets.each do |bet|  %>
+        <tr>
+        <td> <%= bet.user.username %> </td>
+        <td>
+          <% case bet.bet %>
+            <% when 1 %>
+            <%= @match.home_team.label %>
+          <% when 0 %>
+            Draw
+          <% when -1 %>
+            <%= @match.away_team.label %>
+          <% end %>
+         </td>
+        </tr>
+        <% end %>
+    </table>
   </div>
   <div class="col-md-12">
     <br>
