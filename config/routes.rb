@@ -6,13 +6,15 @@ Rails.application.routes.draw do
 
   # READ MATCH WITHOUT BET
   get("/current/:id", { :controller => "soccer", :action => "current_matches" })
-  get("/current/:match_id/:user_id/create_bet", { :controller => "soccer", :action => "create_bet" })
+  get("/create_bet", { :controller => "soccer", :action => "create_bet" })
 
   # READ MATCH WITH BET
-  get("/current/:id/bets", { :controller => "soccer", :action => "current_bets" })
+  get("/current/bets", { :controller => "soccer", :action => "current_index" })
+  get("/current/bets/:id", { :controller => "soccer", :action => "match_show" })
 
   # READ MATCH WITH RESULT
-  get("/results/:page", { :controller => "soccer", :action => "results_index" })
+  get("/past", { :controller => "soccer", :action => "past_index" })
+  get("/past/:match_id", { :controller => "soccer", :action => "match_show" })
 
   # Routes for static pages
   get("/", { :controller => "soccer", :action => "index" })

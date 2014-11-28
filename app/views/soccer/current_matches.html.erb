@@ -15,7 +15,6 @@
         <% end  %>
 
   </h3>
-  <h3>Match id: <%= @match.id %></h3>
 </div>
 <div class="row" id="containerCenter">
   <div class="row">
@@ -41,15 +40,17 @@
       </div>
     </div>
     <div class="row">
-      <form action="/current/<%= @match.id %>/1/create_bet">
+      <form action="/create_bet">
+        <input type="hidden" name="match_id" value="<%= @match.id %>" class="form-control">
+        <input type="number" name="user_id" value="1" class="form-control">
         <div class="col-xs-4" style="text-align: center">
-          <button type="submit" name="guess" class="btn btn-primary" value="1">Bet this team</button>
+          <button type="submit" name="bet" class="btn btn-primary" value="1">Bet this team</button>
         </div>
         <div class="col-xs-4" style="text-align: center">
-          <button type="submit" name="guess" class="btn btn-primary" value="0">Bet a draw</button>
+          <button type="submit" name="bet" class="btn btn-primary" value="0">Bet a draw</button>
         </div>
         <div class="col-xs-4" style="text-align: center">
-          <button type="submit" name="guess" class="btn btn-primary" value="-1">Bet this team</button>
+          <button type="submit" name="bet" class="btn btn-primary" value="-1">Bet this team</button>
         </div>
       </form>
     </div>
@@ -59,13 +60,13 @@
 <div class="row" style="text-align: center">
   <div class="col-lg-12">
     <ul class="pagination">
-      <li><a href="#">&laquo;</a></li>
-      <li><a href="/current/1">1</a></li>
+      <li><a href="/current/<%= @previous %>">PREVIOUS<!--&raquo;--></a></li>
+      <!--<li><a href="/current/1">1</a></li>
       <li><a href="/current/2">2</a></li>
       <li><a href="/current/3">3</a></li>
       <li><a href="/current/4">4</a></li>
-      <li><a href="/current/5">5</a></li>
-      <li><a href="#">&raquo;</a></li>
+      <li><a href="/current/5">5</a></li>-->
+      <li><a href="/current/<%= @next %>">NEXT<!--&raquo;--></a></li>
     </ul>
   </div>
 </div>

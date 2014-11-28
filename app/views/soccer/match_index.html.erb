@@ -1,0 +1,44 @@
+<div class="row">
+ <div class="col-md-12">
+
+    <h1><%= @page_name %></h1>
+    <table class="table table-striped">
+      <tr>
+        <th>Tournament</th>
+        <th>Round</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Venue</th>
+        <th>Home team</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Away team</th>
+        <th></th>
+      </tr>
+      <% @match.each do |match| %>
+      <tr>
+        <td><%= match.tournament %></td>
+        <td><%= match.round %></td>
+        <td>
+        <% if !match.match_on.nil?  %>
+          <%= match.match_on.strftime("%e/%m/%y") %>
+        <% end  %>
+        </td>
+        <td>
+        <% if !match.match_at.nil?  %>
+          <%= match.match_at.strftime("%H:%M") %>
+        <% end  %>
+        </td>
+        <td><%= match.venue %></td>
+        <td><img src="<%= match.home_team.crest %>"></td>
+        <td><%= match.home_goal %></td>
+        <td >X</td>
+        <td><%= match.away_goal %></td>
+        <td><img src="<%= match.away_team.crest %>"></td>
+        <td><a href="past/<%= match.id %>" class="btn btn-primary" style="margin: 10px"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
