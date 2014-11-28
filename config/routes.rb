@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get("/create_bet", { :controller => "soccer", :action => "create_bet" })
 
   # READ MATCH WITH BET
-  get("/current/bets", { :controller => "soccer", :action => "current_index" })
-  get("/current/bets/:id", { :controller => "soccer", :action => "match_show" })
+  get("/current", { :controller => "soccer", :action => "current_index" })
+  get("/current/bet/:match_id", { :controller => "soccer", :action => "match_show" })
 
   # READ MATCH WITH RESULT
   get("/past", { :controller => "soccer", :action => "past_index" })

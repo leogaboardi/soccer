@@ -94,12 +94,15 @@ class SoccerController < ApplicationController
   def past_index
     @page_name = "Past results"
     @match = Match.where({:outcome => [-1,0,1]}).order("match_at")
+    @link = "past/"
     render("match_index")
   end
 
   def current_index
     @page_name = "Your current bets"
+    @bet = Bet.where({:user_id => 1}).order("match_id")
     @match = Match.where({:outcome => nil}).order("match_at")
+    @link = "/current/bet/"
     render("match_index")
   end
 end

@@ -36,7 +36,7 @@
         <td >X</td>
         <td><%= match.away_goal %></td>
         <td><img src="<%= match.away_team.crest %>"></td>
-        <td><a href="past/<%= match.id %>" class="btn btn-primary" style="margin: 10px"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a></td>
+        <td><a href="<%= @link %><%= match.id %>" class="btn btn-primary" style="margin: 10px"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a></td>
       </tr>
       <% end %>
     </table>
