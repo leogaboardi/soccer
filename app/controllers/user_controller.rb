@@ -20,6 +20,8 @@ class UserController < ApplicationController
     @user.username = params[:username]
     @user.email = params[:email].downcase
     @user.admin = params[:admin]
+    @user.password = params[:password]
+    @user.password_confirmation = params[:password_confirmation]
 
     if @user.save
       redirect_to "/users", :notice => "User created successfully."
@@ -38,6 +40,7 @@ class UserController < ApplicationController
     @user.username = params[:username]
     @user.email = params[:email]
     @user.admin = params[:admin]
+
     @user.save
 
     if @user.save

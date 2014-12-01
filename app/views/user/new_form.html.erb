@@ -1,5 +1,4 @@
 <!-- Validation failure messages -->
-<% if @user.errors != nil %>
   <% if @user.errors.any? %>
     <% @user.errors.full_messages.each do |message| %>
       <div class="alert alert-dismissable alert-danger">
@@ -8,7 +7,6 @@
       </div>
     <% end %>
   <% end %>
-<% end %>
 
 <div class="row">
   <div class="col-md-12">
@@ -32,6 +30,26 @@
         </label>
         <div class="col-sm-9">
           <input type="email" id="email" name="email" placeholder="username@xyz.com" class="form-control">
+        </div>
+      </div>
+
+      <!-- Label and input for password -->
+      <div class="form-group">
+        <label for="password" class="col-sm-3 control-label">
+          Password
+        </label>
+        <div class="col-sm-9">
+          <input type="password" id="password" name="password" placeholder="8 digits minimum" class="form-control">
+        </div>
+      </div>
+
+      <!-- Label and input for password_confirmation -->
+      <div class="form-group">
+        <label for="password_confirmation" class="col-sm-3 control-label">
+          Confirm password
+        </label>
+        <div class="col-sm-9">
+          <input type="password" id="password_confirmation" name="password_confirmation" class="form-control">
         </div>
       </div>
 

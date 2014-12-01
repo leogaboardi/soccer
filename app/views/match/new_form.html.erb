@@ -1,5 +1,4 @@
 <!-- Validation failure messages -->
-<% if @match.errors != nil %>
   <% if @match.errors.any? %>
     <% @match.errors.full_messages.each do |message| %>
       <div class="alert alert-dismissable alert-danger">
@@ -8,7 +7,6 @@
       </div>
     <% end %>
   <% end %>
-<% end %>
 
 <div class="row">
   <div class="col-md-12">
@@ -17,16 +15,8 @@
     <form action="/create_match" class="form-horizontal">
 
     <!-- Username -->
-      <div class="form-group">
-        <label for="user_id" class="col-sm-3 control-label">
-          Created by
-        </label>
-        <div class="col-sm-9">
-              <div class="dropdown customizeMenu">
-                <%= select_tag(:user_id, options_from_collection_for_select(User.order("username"), :id, :username),:include_blank =>:true, :class => "form-control") %>
-              </div>
-        </div>
-      </div>
+      <input type="hidden" id="user_id" name="user_id" value=<%= current_user.id %> class="form-control">
+
 
     <!-- tournament -->
       <div class="form-group">

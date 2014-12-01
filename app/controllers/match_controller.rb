@@ -10,8 +10,6 @@ class MatchController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-
-
   end
 
   def new_form
@@ -77,9 +75,11 @@ class MatchController < ApplicationController
       end
     end
 
-    @match.save
-    render("show")
-
+    if @match.save
+      redirect_to "/matches", :notice => "Match updated successfully."
+    else
+      render "edit_form"
+    end
   end
 
   def destroy
