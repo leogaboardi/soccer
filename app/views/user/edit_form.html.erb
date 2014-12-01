@@ -1,3 +1,15 @@
+<!-- Validation failure messages -->
+<% if @user.errors != nil %>
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message| %>
+      <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
 <div class="row">
   <div class="col-md-12">
     <h1>Edit user</h1>

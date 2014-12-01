@@ -1,22 +1,13 @@
 <div class="row">
   <div class="col-md-12">
-    <% if @alert_create == true %>
-      <div class="alert alert-success">
-        <p>Uhu! User created sucessfully!</p>
-      </div>
-    <% end  %>
-
-    <% if @alert_update == true %>
-      <div class="alert alert-success">
-        <p>Uhu! User updated sucessfully!</p>
-      </div>
-    <% end  %>
     <h1><%= @user.username %></h1>
     <br>
   </div>
-  <div class="col-md-12">
-  <br>
+  <div class="col-md-8 col-md-offset-2">
+    <h4>User data</h4>
     <dl class="dl-horizontal">
+      <dt>User ID</dt>
+      <dd><%= @user.id %></dd>
       <dt>Username</dt>
       <dd><%= @user.username %></dd>
       <dt>Email</dt>
@@ -26,11 +17,14 @@
     </dl>
   </div>
 
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
+    <h4>Bets</h4>
     <table class="table table-striped">
         <tr>
           <th>Match</th>
           <th>Bet</th>
+          <th>Result</th>
+          <th>Bet date</th>
         </tr>
         <%  @user.bets.each do |bet|  %>
         <tr>
@@ -44,7 +38,21 @@
           <% when -1 %>
             <%= bet.match.away_team.label %>
           <% end %>
-         </td>
+        </td>
+        <td>
+          <% case bet.match.outcome %>
+            <% when 1 %>
+            <%= bet.match.home_team.label %>
+          <% when 0 %>
+            Draw
+          <% when -1 %>
+            <%= bet.match.away_team.label %>
+
+          <% end %>
+        </td>
+        <td>
+        <%= bet.created_at.strftime("%e/%m/%y") %>
+        </td>
         </tr>
         <% end %>
     </table>

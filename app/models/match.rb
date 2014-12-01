@@ -5,7 +5,5 @@ class Match < ActiveRecord::Base
 
   has_many :bets
 
-  validates :venue, :presence => true
-  #validates :home_team_id, :presence => true
-  #validates :away_team_id, :presence => true
+  validates :venue, :home_team_id,:away_team_id,:match_on,  :presence => true
 end

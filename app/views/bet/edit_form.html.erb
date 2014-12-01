@@ -1,3 +1,15 @@
+<!-- Validation failure messages -->
+<% if @bet.errors != nil %>
+  <% if @bet.errors.any? %>
+    <% @bet.errors.full_messages.each do |message| %>
+      <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
 <div class="row">
   <div class="col-md-12">
     <h1>Edit bet</h1>
@@ -22,7 +34,7 @@
         </label>
         <div class="col-sm-9">
           <div class="dropdown customizeMenu">
-            <%= select_tag(:match_id, options_from_collection_for_select(Match.where(:outcome => !nil).order("match_on"), :id, :id, @bet.match_id), :class => "form-control") %>
+           <%= select_tag(:match_id, options_from_collection_for_select(Match.order("match_on"), :id, :id, @bet.match_id), :class => "form-control") %>
           </div>
         </div>
       </div>

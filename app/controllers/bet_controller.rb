@@ -1,6 +1,9 @@
 class BetController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
+  before_action :authenticate_user!
+
   def index
     @bet = Bet.all
   end
@@ -10,7 +13,7 @@ class BetController < ApplicationController
   end
 
   def new_form
-
+    @bet = Bet.new
   end
 
   def create_row
@@ -19,9 +22,11 @@ class BetController < ApplicationController
     @bet.user_id = params[:user_id]
     @bet.bet = params[:bet]
 
-    @bet.save
-    @alert_create = true
-    render("show")
+    if @bet.save
+      redirect_to "/bets", :notice => "Bet created successfully."
+    else
+      render "new_form"
+    end
 
   end
 
@@ -35,9 +40,11 @@ class BetController < ApplicationController
     @bet.user_id = params[:user_id]
     @bet.bet = params[:bet]
 
-    @bet.save
-    @alert_update = true
-    render("show")
+    if @bet.save
+      redirect_to "/bets", :notice => "Bet updated successfully."
+    else
+      render "edit_form"
+    end
 
   end
 

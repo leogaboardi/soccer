@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  root 'soccer#index'
   ##### ##### ##### ##### ##### ##### ##### #####
   ##### Routes for the "front end" (what any user can see)
   ##### ##### ##### ##### ##### ##### ##### #####
 
   # READ MATCH WITHOUT BET
+  get("/current/done", { :controller => "soccer", :action => "no_bet_left" })
   get("/current/:id", { :controller => "soccer", :action => "current_matches" })
-  get("/create_bet", { :controller => "soccer", :action => "create_bet" })
+  get("/current/create_bet", { :controller => "soccer", :action => "create_bet" })
 
   # READ MATCH WITH BET
   get("/current", { :controller => "soccer", :action => "current_index" })
@@ -17,11 +20,10 @@ Rails.application.routes.draw do
   get("/past/:match_id", { :controller => "soccer", :action => "match_show" })
 
   # Routes for static pages
-  get("/", { :controller => "soccer", :action => "index" })
-  get("/faq", { :controller => "soccer",  :action => "faq" })
+  get("/faq", { :controller => "public",  :action => "faq" })
   get("/todo", {:controller => "soccer",  :action =>  "todo"})
-  get("/about", {:controller => "soccer",  :action =>  "about"})
-  get("/howitworks", {:controller => "soccer",  :action =>  "howitworks"})
+  get("/about", {:controller => "public",  :action =>  "about"})
+  get("/howitworks", {:controller => "public",  :action =>  "howitworks"})
 
   ##### ##### ##### ##### ##### ##### ##### #####
   ##### Routes for the admin only

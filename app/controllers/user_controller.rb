@@ -1,6 +1,8 @@
 class UserController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
+  before_action :authenticate_user!
   def index
     @user = User.all
   end
@@ -10,7 +12,7 @@ class UserController < ApplicationController
   end
 
   def new_form
-
+    @user = User.new
   end
 
   def create_row
@@ -20,7 +22,7 @@ class UserController < ApplicationController
     @user.admin = params[:admin]
 
     if @user.save
-      redirect_to "/users", :notice => "Favorite created successfully."
+      redirect_to "/users", :notice => "User created successfully."
     else
       render "new_form"
     end
@@ -37,8 +39,12 @@ class UserController < ApplicationController
     @user.email = params[:email]
     @user.admin = params[:admin]
     @user.save
-    @alert_update = true
-    render("show")
+
+    if @user.save
+      redirect_to "/users", :notice => "User updated successfully."
+    else
+      render "edit_form"
+    end
 
   end
 

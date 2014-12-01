@@ -9,8 +9,8 @@
 users = [
   {
     :username => "Leonardo",
-    :email => "leogaboardi@example.com".downcase,
-    :admin => true
+    :email => "leonardo@example.com".downcase,
+    :admin => true,
   },
   {
     :username => "Batman",
@@ -64,6 +64,9 @@ users.each do |new_user|
   user.email = new_user[:email]
   user.username = new_user[:username]
   user.admin = new_user[:admin]
+  user.password = "password"
+  user.password_confirmation = "password"
+
   user.save
 end
 
@@ -71,102 +74,102 @@ teams = [
   {
     :name => "criciuma_sc",
     :label => "Criciúma",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00007sc.jpg"
+    :crest => "assets/crests/criciuma_sc.jpg"
   },
   {
     :name => "sport_pe",
     :label => "Sport",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00012pe.jpg"
+    :crest => "assets/crests/sport_pe.jpg"
   },
   {
     :name => "internacional_rs",
     :label => "Internacional",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00009rs.jpg"
+    :crest => "assets/crests/internacional_rs.jpg"
   },
   {
     :name => "palmeiras_sp",
     :label => "Palmeiras",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00019sp.jpg"
+    :crest => "assets/crests/palmeiras_sp.jpg"
   },
   {
     :name => "flamengo_rj",
     :label => "Flamengo",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00006rj.jpg"
+    :crest => "assets/crests/flamengo_rj.jpg"
   },
   {
     :name => "vitoria_ba",
     :label => "Vitória",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00006ba.jpg"
+    :crest => "assets/crests/vitoria_ba.jpg"
   },
   {
     :name => "santos_sp",
     :label => "Santos",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00018sp.jpg"
+    :crest => "assets/crests/santos_sp.jpg"
   },
   {
     :name => "botafogo_rj",
     :label => "Botafogo",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00005rj.jpg"
+    :crest => "assets/crests/botafogo_rj.jpg"
   },
   {
     :name => "chapecoense_sc",
     :label => "Chapecoense",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00002sc.jpg"
+    :crest => "assets/crests/chapecoense_sc.jpg"
   },
   {
     :name => "cruzeiro_mg",
     :label => "Cruzeiro",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00006mg.jpg"
+    :crest => "assets/crests/cruzeiro_mg.jpg"
   },
   {
     :name => "fluminense_rj",
     :label => "Fluminense",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00009rj.jpg"
+    :crest => "assets/crests/fluminense_rj.jpg"
   },
   {
     :name => "corinthians_sp",
     :label => "Corinthians",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00021sp.jpg"
+    :crest => "assets/crests/corinthians_sp.jpg"
   },
   {
     :name => "sao_paulo_sp",
     :label => "São Paulo",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00017sp.jpg"
+    :crest => "assets/crests/sao_paulo_sp.jpg"
   },
   {
     :name => "figueirense_sc",
     :label => "Figueirense",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00010sc.jpg"
+    :crest => "assets/crests/figueirense_sc.jpg"
   },
   {
     :name => "atletico_pr",
     :label => "Atlético PR",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00004pr.jpg"
+    :crest => "assets/crests/atletico_pr.jpg"
   },
   {
     :name => "goias_go",
     :label => "Goiás",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00009go.jpg"
+    :crest => "assets/crests/goias_go.jpg"
   },
   {
     :name => "atletico_mg",
     :label => "Atlético MG",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00003mg.jpg"
+    :crest => "assets/crests/atletico_mg.jpg"
   },
   {
     :name => "coritiba_pr",
     :label => "Coritiba",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00006pr.jpg"
+    :crest => "assets/crests/coritiba_pr.jpg"
   },
   {
     :name => "bahia_ba",
     :label => "Bahia",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00005ba.jpg"
+    :crest => "assets/crests/bahia_ba.jpg"
   },
   {
     :name => "gremio_rs",
     :label => "Grêmio",
-    :crest => "http://cdn.cbf.com.br/cbf/imagens/escudos/00008rs.jpg"
+    :crest => "assets/crests/gremio_rs.jpg"
   }
 ]
 

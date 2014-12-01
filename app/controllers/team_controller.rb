@@ -1,6 +1,9 @@
 class TeamController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
+  before_action :authenticate_user!
+
   def index
     @team = Team.order("label")
   end
@@ -10,7 +13,7 @@ class TeamController < ApplicationController
   end
 
   def new_form
-
+    @team = Team.new
   end
 
   def create_row
@@ -19,9 +22,11 @@ class TeamController < ApplicationController
     @team.label = params[:label]
     @team.crest = params[:crest_url]
 
-    @team.save
-    @alert_create = true
-    render("show")
+    if @team.save
+      redirect_to "/teams", :notice => "Team created successfully."
+    else
+      render "new_form"
+    end
 
   end
 
@@ -35,9 +40,11 @@ class TeamController < ApplicationController
     @team.label = params[:label]
     @team.crest = params[:crest_url]
 
-    @team.save
-    @alert_update = true
-    render("show")
+    if @team.save
+      redirect_to "/teams", :notice => "Team updated successfully."
+    else
+      render "edit_form"
+    end
 
   end
 

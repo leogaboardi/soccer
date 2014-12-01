@@ -1,15 +1,14 @@
 <!-- Validation failure messages -->
-<!--
-< if @match.errors.any? %>
-  < @match.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <= message %>
-    </div>
-  < end %>
-< end %>
--->
-
+<% if @match.errors != nil %>
+  <% if @match.errors.any? %>
+    <% @match.errors.full_messages.each do |message| %>
+      <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
 
 <div class="row">
   <div class="col-md-12">
@@ -17,13 +16,15 @@
     <br>
     <form action="/create_match" class="form-horizontal">
 
-    <!-- user_id -->
+    <!-- Username -->
       <div class="form-group">
         <label for="user_id" class="col-sm-3 control-label">
-          user_id
+          Created by
         </label>
-        <div class="col-sm-3">
-          <input type="number" id="user_id" name="user_id" placeholder="user_id" class="form-control">
+        <div class="col-sm-9">
+              <div class="dropdown customizeMenu">
+                <%= select_tag(:user_id, options_from_collection_for_select(User.order("username"), :id, :username),:include_blank =>:true, :class => "form-control") %>
+              </div>
         </div>
       </div>
 
@@ -93,7 +94,7 @@
             <label for="home_team_id" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
               <div class="dropdown customizeMenu">
-                <%= select_tag(:home_team_id, options_from_collection_for_select(Team.order("label"), :id, :label), :class => "form-control") %>
+                <%= select_tag(:home_team_id, options_from_collection_for_select(Team.order("label"), :id, :label),:include_blank =>:true, :class => "form-control") %>
               </div>
             </div>
           </div>
@@ -115,7 +116,7 @@
             <label for="away_team_id" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
               <div class="dropdown customizeMenu">
-              <%= select_tag(:away_team_id, options_from_collection_for_select(Team.order("label"), :id, :label), :class => "form-control") %>
+              <%= select_tag(:away_team_id, options_from_collection_for_select(Team.order("label"), :id, :label),:include_blank =>:true, :class => "form-control") %>
             </div>
             </div>
           </div>

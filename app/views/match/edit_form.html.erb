@@ -7,10 +7,12 @@
     <!-- user_id -->
       <div class="form-group">
         <label for="user_id" class="col-sm-3 control-label">
-          user_id
+          Created by
         </label>
-        <div class="col-sm-3">
-          <input type="number" id="user_id" name="user_id" value="<%= @match.user_id %>" class="form-control">
+        <div class="col-sm-9">
+              <div class="dropdown customizeMenu">
+                <%= select_tag(:user_id, options_from_collection_for_select(User.order("username"), :id, :username, @match.user_id),:include_blank =>:true, :class => "form-control") %>
+              </div>
         </div>
       </div>
 
@@ -79,7 +81,7 @@
             <label for="home_team_id" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
               <div class="dropdown customizeMenu">
-                <%= select_tag(:home_team_id, options_from_collection_for_select(Team.all, :id, :label, @match.home_team_id), :class => "form-control") -%>
+                <%= select_tag(:home_team_id, options_from_collection_for_select(Team.all, :id, :label, @match.home_team_id),:include_blank =>:true, :class => "form-control") -%>
               </div>
             </div>
           </div>
@@ -101,7 +103,7 @@
             <label for="away_team_id" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
               <div class="dropdown customizeMenu">
-              <%= select_tag(:away_team_id, options_from_collection_for_select(Team.all, :id, :label, @match.away_team_id), :class => "form-control") %>
+              <%= select_tag(:away_team_id, options_from_collection_for_select(Team.all, :id, :label, @match.away_team_id),:include_blank =>:true, :class => "form-control") %>
             </div>
             </div>
           </div>
