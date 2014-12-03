@@ -4,11 +4,10 @@ class SoccerController < ApplicationController
 
   before_action :authenticate_user!
 
-  def current_match_link
+  def current_match_link #Creates the link for the "GUESS A MATCH" button
 
     if current_user.present?
-      #Put a link to a random match which did not occur and
-
+      #Put a link to the a random match which did not occur yet and the user did not bet yet
       # Get an array of bets whose user equals to current user
       @bet = Bet.where({:user_id => current_user.id})
       @bet_ids = @bet.pluck(:match_id)
@@ -32,6 +31,10 @@ class SoccerController < ApplicationController
   end
 
   def no_bet_left
+    current_match_link
+  end
+
+  def index
     current_match_link
   end
 
@@ -62,6 +65,7 @@ class SoccerController < ApplicationController
     #This variable checks where to put the "you" badge next to the progress bar
     @user_bet = @match.bets.where({:user_id => params[:user_id]}).first.bet
 
+    current_match_link
     render("match_show")
   end
 
@@ -95,19 +99,26 @@ class SoccerController < ApplicationController
   end
 
 
-  def current_matches
+  def match_bet
     @match = Match.find(params[:id])
 
-    @current_matches = Match.where({:outcome => nil}).order("id")
+    ##### ##### ##### ##### ##### ##### #####
+    # Algorithm below populates the PREVIOUS/NEXT buttons with the IDs
+    # of matches that did not occur yet, and the user did not bet yet
 
+    #1. Get the array of match IDs which the user has already bet
     @bet = Bet.where({:user_id => current_user.id}).order("match_id")
     @bet_ids = @bet.pluck(:match_id)
 
-    #Need to find a way to not show matches whose bets have alredy been placed by the user
+    #2. Get the not occured matches
+    @current_matches = Match.where({:outcome => nil})
 
+    #3. Get matches that are not in the @bet_ids vector. Sort by ID order
+    @current_matches  = @current_matches.where.not({:id => @bet_ids}).order("id")
+
+    #4. Get the first and last IDs (so I can restart in the beginning when I finished going through all arrays)
     first_match_id = @current_matches.first.id
     last_match_id = @current_matches.last.id
-
 
     #Check if this match has the lowest ID among the current matches
     if @match.id != first_match_id
@@ -130,6 +141,8 @@ class SoccerController < ApplicationController
     @page_name = "Past results"
     @match = Match.where({:outcome => [-1,0,1]}).order("match_at")
     @link = "past/"
+
+    current_match_link
     render("match_index")
   end
 
@@ -144,6 +157,8 @@ class SoccerController < ApplicationController
     # Use the bet IDs to filter Matches
     @match = Match.where({:id => @bet_ids, :outcome => nil }).order("match_at")
     @link = "/current/bet/"
+
+    current_match_link
     render("match_index")
   end
 end

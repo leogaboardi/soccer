@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
   <title>Soccer</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,6 +10,7 @@
   <link rel="stylesheet" type="text/css" href="css/soccer.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -29,11 +31,13 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/about">About</a></li>
+
               <% if current_user.present? %>
-                <li><a href="/users/edit"><%= current_user.username %></a></li>
+                 <li><a href="/current/<%= @match_link %>">Guess a match</a></li>
+                <li><a href="/users/edit">Hello, <%= current_user.username %>!</a></li>
                 <li><a href="/users/sign_out" data-method="delete">Sign out</a></li>
               <% else %>
+                 <li><a href="/about">About</a></li>
                 <li><a href="/users/sign_up">Sign up</a></li>
                 <li><a href="/users/sign_in">Sign in</a></li>
               <% end %>
@@ -43,10 +47,18 @@
       </nav>
       <!-- header ends -->
   <div class="container" style="max-width: 760px; min-height: 70%">
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <div class="row">
+      <% if notice.present? %>
+        <div class="alert alert-info " role="alert">
+          <p><%= notice %></p>
+        </div>
+      <% end %>
+      <% if alert.present? %>
+      <div class="alert alert-danger" role="alert">
+        <p ><%= alert %></p>
+      </div>
+      <% end %>
+    </div>
     <%= yield %>
   </div>
   <!--  Footer starts -->

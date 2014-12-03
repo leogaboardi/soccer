@@ -10,6 +10,7 @@
 
 <div class="row">
   <div class="col-md-12">
+    <% if current_user.admin? %>
     <h1>Edit user</h1>
     <br>
     <form action="/update_users/<%= @user.id %>" class="form-horizontal">
@@ -49,7 +50,11 @@
         </div>
       </div>
     </form>
+    <% else %>
+    <p>Page unavailable =(</p>
+    <% end %>
     <div class="col-md-12">
+      <br>
       <a href="/users">Go back</a>
       <br>
     </div>

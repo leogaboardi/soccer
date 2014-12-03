@@ -1,5 +1,7 @@
+<img src="http://blogserflamengo.files.wordpress.com/2013/07/5871b-img_0068.jpg" id="background">
+
 <div class="row">
- <div class="col-md-12">
+ <div class="col-md-12 card">
     <h1><%= @page_name %></h1>
     <br>
     <table class="table table-striped">
@@ -31,14 +33,17 @@
         <% end  %>
         </td>
         <td><%= match.venue %></td>
-        <td><img src="/<%= match.home_team.crest %>"></td>
+        <td><img src="/<%= match.home_team.crest %>" class="crest"></td>
         <td><%= match.home_goal %></td>
         <td >X</td>
         <td><%= match.away_goal %></td>
-        <td><img src="/<%= match.away_team.crest %>"></td>
+        <td><img src="/<%= match.away_team.crest %>" class="crest"></td>
         <td><a href="<%= @link %><%= match.id %>" class="btn btn-primary" style="margin: 10px"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a></td>
       </tr>
       <% end %>
     </table>
+  </div>
+  <div class="col-md-12">
+   <br>
   </div>
 </div>

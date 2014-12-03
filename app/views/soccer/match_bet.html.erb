@@ -1,0 +1,74 @@
+<img src="http://blogserflamengo.files.wordpress.com/2013/07/5871b-img_0068.jpg" id="background">
+<div class="row card">
+  <div class="col-md-12">
+    <h2><%= @match.tournament %></h2>
+    <% if !@match.round.nil?  %>
+    <h3>
+      Round <%= @match.round %>
+    </h3>
+    <% end  %>
+    <h3>
+          <% if !@match.match_on.nil?  %>
+            <%= @match.match_on.strftime("%e/%m/%y") %> -
+          <% end  %>
+
+          <% if !@match.match_at.nil?  %>
+            <%= @match.match_at.strftime("%H:%M") %>
+          <% end  %>
+    </h3>
+  </div>
+<div class="row">
+  <div class="row">
+    <div class="col-xs-4">
+      <img src="/<%= @match.home_team.crest %>" class="crest">
+      <br>
+      <p class="text-center"><%= @match.home_team.label %></p>
+    </div>
+    <div class="col-xs-1">
+      <p class="score"><%= @match.home_goal %></p>
+    </div>
+    <div class="col-xs-2">
+      <p class="score">x</p>
+    </div>
+    <div class="col-xs-1">
+      <p class="score"><%= @match.away_goal %></p>
+    </div>
+    <div class="col-xs-4">
+      <img src="/<%= @match.away_team.crest %>" class="crest">
+      <br>
+      <p class="text-center"><%= @match.away_team.label %></p>
+    </div>
+  </div>
+  <div class="row">
+    <form action="/create_bet">
+      <input type="hidden" name="match_id" value="<%= @match.id %>" class="form-control">
+      <input type="hidden" name="user_id" value="<%= current_user.id %>" class="form-control">
+      <div class="col-xs-4" style="text-align: center">
+        <button type="submit" name="bet" class="btn btn-primary" value="1">Bet this team</button>
+      </div>
+      <div class="col-xs-4" style="text-align: center">
+        <button type="submit" name="bet" class="btn btn-primary" value="0">Bet a draw</button>
+      </div>
+      <div class="col-xs-4" style="text-align: center">
+        <button type="submit" name="bet" class="btn btn-primary" value="-1">Bet this team</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Pagination -->
+<div class="row" style="text-align: center">
+  <div class="col-lg-12">
+    <ul class="pagination">
+      <li><a href="/current/<%= @previous %>">PREVIOUS<!--&raquo;--></a></li>
+      <!--<li><a href="/current/1">1</a></li>
+      <li><a href="/current/2">2</a></li>
+      <li><a href="/current/3">3</a></li>
+      <li><a href="/current/4">4</a></li>
+      <li><a href="/current/5">5</a></li>-->
+      <li><a href="/current/<%= @next %>">NEXT<!--&raquo;--></a></li>
+    </ul>
+  </div>
+</div>
+<!-- Pagination ends -->
+</div>
+<br>

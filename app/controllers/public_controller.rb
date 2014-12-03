@@ -1,9 +1,9 @@
 class PublicController < ApplicationController
-  def current_match_link
+
+  def current_match_link #Creates the link for the "GUESS A MATCH" button
 
     if current_user.present?
-      #Put a link to a random match which did not occur and
-
+      #Put a link to the a random match which did not occur yet and the user did not bet yet
       # Get an array of bets whose user equals to current user
       @bet = Bet.where({:user_id => current_user.id})
       @bet_ids = @bet.pluck(:match_id)
@@ -23,9 +23,14 @@ class PublicController < ApplicationController
         @match_link = "done"
       end
     end
+
   end
 
   def index
+    current_match_link
+  end
+
+  def about
     current_match_link
   end
 

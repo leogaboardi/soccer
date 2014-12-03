@@ -1,23 +1,24 @@
+<img src="http://blogserflamengo.files.wordpress.com/2013/07/5871b-img_0068.jpg" id="background">
 <div class="row">
-  <div class="col-md-12">
-    <h2>Sign into your account</h2>
+  <div class="col-md-8 front-page">
+    <h1>Welcome to [Soccer project] </h1>
+    <p>[Soccer project] is a data mining project which acurately predicts the outcome of future soccer matches. Want to check the odds for your time, or if your prediction gut is better than your frieds and our SoccerBot™?</p>
+  </div>
+  <div class="col-md-4 card">
+    <h4>Sign into your account</h4>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-group" style="margin-bottom: 70px">
-          <%= f.label :email, :class => "col-sm-3 control-label" %>
-          <div class="col-sm-9">
-          <%= f.text_field :email, :class => "form-control"%>
-          </div>
+      <div class="form-group">
+          <!--  <%= f.label :email, :class => "col-sm-3 control-label" %> -->
+          <%= f.text_field :email, :class => "form-control", :placeholder => "Username"%>
       </div>
 
-      <div class="form-group" style="margin-bottom: 70px">
-          <%= f.label :password, :class => "col-sm-3 control-label" %>
-        <div class="col-sm-9">
-          <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
-        </div>
+      <div class="form-group">
+          <!-- <%= f.label :password, :class => "col-sm-3 control-label" %>-->
+          <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password" %>
       </div>
 
-      <div class="form-group" style="margin-bottom: 70px">
+      <div class="form-group">
         <% if devise_mapping.rememberable? -%>
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
@@ -27,7 +28,7 @@
       <!-- LOGIN BUTTON -->
       <div class="form-group">
         <div class="actions">
-        <%= f.submit "Log in", :class=>"btn btn-primary" %>
+        <%= f.submit "Log in", :class=>"btn btn-primary"%>
         </div>
       </div>
     <% end %>

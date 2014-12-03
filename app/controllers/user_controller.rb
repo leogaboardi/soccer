@@ -17,16 +17,18 @@ class UserController < ApplicationController
 
   def create_row
     @user = User.new
-    @user.username = params[:username]
-    @user.email = params[:email].downcase
-    @user.admin = params[:admin]
-    @user.password = params[:password]
-    @user.password_confirmation = params[:password_confirmation]
+    if current_user.admin?
+      @user.username = params[:username]
+      @user.email = params[:email].downcase
+      @user.admin = params[:admin]
+      @user.password = params[:password]
+      @user.password_confirmation = params[:password_confirmation]
 
-    if @user.save
-      redirect_to "/users", :notice => "User created successfully."
-    else
-      render "new_form"
+      if @user.save
+        redirect_to "/users", :notice => "User created successfully."
+      else
+        render "new_form"
+      end
     end
 
   end
@@ -37,23 +39,23 @@ class UserController < ApplicationController
 
   def update_row
     @user = User.find(params[:id])
-    @user.username = params[:username]
-    @user.email = params[:email]
-    @user.admin = params[:admin]
+    if current_user.admin?
+      @user.username = params[:username]
+      @user.email = params[:email]
+      @user.admin = params[:admin]
 
-    @user.save
-
-    if @user.save
-      redirect_to "/users", :notice => "User updated successfully."
-    else
-      render "edit_form"
+      if @user.save
+        redirect_to "/users", :notice => "User updated successfully."
+      else
+        render "edit_form"
+      end
     end
-
   end
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    @alert_destroy = true
+    if current_user.admin?
+      @user.destroy
+    end
   end
 end

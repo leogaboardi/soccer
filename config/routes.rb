@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   # READ MATCH WITHOUT BET
   get("/current/done", { :controller => "soccer", :action => "no_bet_left" })
-  get("/current/:id", { :controller => "soccer", :action => "current_matches" })
-  get("/current/create_bet", { :controller => "soccer", :action => "create_bet" })
+  get("/current/:id", { :controller => "soccer", :action => "match_bet" })
+  get("/create_bet", { :controller => "soccer", :action => "create_bet" })
 
   # READ MATCH WITH BET
   get("/current", { :controller => "soccer", :action => "current_index" })
@@ -21,13 +21,14 @@ Rails.application.routes.draw do
 
   # Routes for static pages
   get("/faq", { :controller => "public",  :action => "faq" })
-  get("/todo", {:controller => "soccer",  :action =>  "todo"})
   get("/about", {:controller => "public",  :action =>  "about"})
   get("/howitworks", {:controller => "public",  :action =>  "howitworks"})
 
   ##### ##### ##### ##### ##### ##### ##### #####
   ##### Routes for the admin only
   ##### ##### ##### ##### ##### ##### ##### #####
+
+  get("/todo", {:controller => "soccer",  :action =>  "todo"})
 
   ##### ##### ##### ##### ##### ##### ##### #####
   ##### Routes for the Team resource:

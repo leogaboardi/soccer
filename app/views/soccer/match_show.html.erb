@@ -1,33 +1,29 @@
-<div class="row">
-<!--<div class="alert alert-success" role="alert">Thanks! Check what others think about this match!</div> -->
-</div>
-<!-- Match panel starts -->
-<div class="row">
-  <h2><%= @match.tournament %></h2>
-  <% if !@match.round.nil?  %>
-  <h2>
-    Round <%= @match.round %>
-  </h2>
-  <% end  %>
-  <h3>
-        <% if !@match.match_on.nil?  %>
-          <%= @match.match_on.strftime("%e/%m/%y") %> -
-        <% end  %>
+<img src="http://blogserflamengo.files.wordpress.com/2013/07/5871b-img_0068.jpg" id="background">
+<div class="row card">
+  <div class="col-md-12">
+  <!-- Match panel Starts -->
+    <h2><%= @match.tournament %></h2>
+    <% if @match.round.present?  %>
+    <h2>
+      Round <%= @match.round %>
+    </h2>
+    <% end  %>
+    <h3>
+          <% if @match.match_on.present?  %>
+            <%= @match.match_on.strftime("%e/%m/%y") %> -
+          <% end  %>
 
-        <% if !@match.match_at.nil?  %>
-          <%= @match.match_at.strftime("%H:%M") %>
-        <% end  %>
-
-  </h3>
-</div>
-
-<div class="row" id="containerCenter">
-  <div class="row">
+          <% if @match.match_at.present?  %>
+            <%= @match.match_at.strftime("%H:%M") %>
+          <% end  %>
+    </h3>
+  </div>
+  <div class="row" >
     <div class="row">
       <div class="col-xs-4">
-      <img src=<%= @match.home_team.crest %>>
-      <br>
-      <p class="text-center"><%= @match.home_team.label %></p>
+        <img src="/<%= @match.home_team.crest %>" class="crest">
+        <br>
+        <p class="text-center"><%= @match.home_team.label %></p>
       </div>
       <div class="col-xs-1">
         <p class="score"><%= @match.home_goal %></p>
@@ -39,196 +35,98 @@
         <p class="score"><%= @match.away_goal %></p>
       </div>
       <div class="col-xs-4">
-      <img src=<%= @match.away_team.crest %>>
-      <br>
-      <p class="text-center"><%= @match.away_team.label %></p>
-
+        <img src="/<%= @match.away_team.crest %>" class="crest">
+        <br>
+        <p class="text-center"><%= @match.away_team.label %></p>
       </div>
     </div>
+  <!-- Match panel ends -->
+  <!--Vote bars start -->
+    <div class="row">
+      <div class="row">
+        <% if @match.outcome == nil %>
+          <h3>What everyone is betting </h3>
+        <% else %>
+          <h3>What everyone bet </h3>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <p style="text-align: right"><%= @match.home_team.label %> victory</p>
+        </div>
+        <div class="col-xs-7">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100%" aria-valuemin="0" aria-valuemax="100" style="width: <%= @home_count/@total_count*100 %>%">
+              <%= (@home_count/@total_count*100).round(0) %>%
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-1">
+          <% if @match.outcome == 1 %>
+          <span class="badge">Winner</span>
+          <% end %>
+          <% if @user_bet == 1 %>
+          <span class="badge">You</span>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <p style="text-align: right">Draw</p>
+        </div>
+        <div class="col-xs-7">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100%" aria-valuemin="0" aria-valuemax="100" style="width: <%= @draw_count/@total_count*100 %>%">
+              <%= (@draw_count/@total_count*100).round(0) %>%
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-1">
+        <% if @match.outcome == 0 %>
+          <span class="badge">Draw</span>
+        <% end %>
+        <% if @user_bet == 0 %>
+          <span class="badge">You</span>
+        <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <p style="text-align: right"><%= @match.away_team.label %> victory</p>
+        </div>
+        <div class="col-xs-7">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100%" aria-valuemin="0" aria-valuemax="100" style="width: <%= @away_count/@total_count*100 %>%">
+              <%= (@away_count/@total_count*100).round(0) %>%
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-2">
+        <% if @match.outcome == -1 %>
+          <span class="badge">Winner</span>
+        <% end %>
+        <% if @user_bet == -1 %>
+          <span class="badge">You</span>
+        <% end %>
+        </div>
+      </div>
+
+    </div>
+
   </div>
-</div>
-<!-- Match panel ends -->
-<!--Vote bars start -->
-<div class="row">
-  <div class="row">
+  <div class="col-md-12">
+        <p>Total number of bets: <%= @total_count.round(0) %></p>
+    </div>
+  <div class="col-md-12">
+    <br>
     <% if @match.outcome == nil %>
-      <h3>What everyone is betting </h3>
+      <a href="/current/<%= @match_link %>">Bet another match</a>
     <% else %>
-      <h3>What everyone bet </h3>
+      <a href="/past">Go back</a>
     <% end %>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">
-      <p style="text-align: right"><%= @match.home_team.label %> victory</p>
-    </div>
-    <div class="col-xs-7">
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="100%" aria-valuemin="0" aria-valuemax="100" style="width: <%= @home_count/@total_count*100 %>%">
-          <%= (@home_count/@total_count*100).round(0) %>%
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-      <% if @match.outcome == 1 %>
-      <span class="badge">Winner</span>
-      <% end %>
-      <% if @user_bet == 1 %>
-      <span class="badge">You</span>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">
-      <p style="text-align: right">Draw</p>
-    </div>
-    <div class="col-xs-7">
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="100%" aria-valuemin="0" aria-valuemax="100" style="width: <%= @draw_count/@total_count*100 %>%">
-          <%= (@draw_count/@total_count*100).round(0) %>%
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-    <% if @match.outcome == 0 %>
-      <span class="badge">Draw</span>
-    <% end %>
-    <% if @user_bet == 0 %>
-      <span class="badge">You</span>
-    <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">
-      <p style="text-align: right"><%= @match.away_team.label %> victory</p>
-    </div>
-    <div class="col-xs-7">
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="100%" aria-valuemin="0" aria-valuemax="100" style="width: <%= @away_count/@total_count*100 %>%">
-          <%= (@away_count/@total_count*100).round(0) %>%
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-2">
-    <% if @match.outcome == -1 %>
-      <span class="badge">Winner</span>
-    <% end %>
-    <% if @user_bet == -1 %>
-      <span class="badge">You</span>
-    <% end %>
-    </div>
-  </div>
-
-  <p class="text-left">Total number of bets: <%= @total_count.round(0) %></p>
-</div>
-
-<!--
-<div class="row">
-  <div class="row">
-    <h3>What your friends are betting</h3>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <p style="text-align: right">Home team victory</p>
-    </div>
-    <div class="col-xs-8">
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
-          25%
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <p style="text-align: right">Draw</p>
-    </div>
-    <div class="col-xs-8">
-      <div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
-          10%
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <p style="text-align: right">Away team victory</p>
-    </div>
-    <div class="col-xs-8">
-      <div class="progress">
-        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;">
-          65%
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-    <span class="badge">You</span>
-    </div>
+    <br>
   </div>
 </div>
-<div class="row">
-  <div class="row">
-    <h3>What SoccerBot&#0153 is betting</h3>
+  <div class="col-md-12">
+    <br>
   </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <p style="text-align: right">Home team victory</p>
-    </div>
-    <div class="col-xs-8">
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%;">
-          35%
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <p style="text-align: right">Draw</p>
-    </div>
-    <div class="col-xs-8">
-      <div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%;">
-          15%
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <p style="text-align: right">Away team victory</p>
-    </div>
-    <div class="col-xs-8">
-      <div class="progress">
-        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-          50%
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-    <span class="badge">You</span>
-    </div>
-  </div>
-</div>
--->
-<!--Vote bars end -->
-<div class="col-md-12">
-  <br>
-  <% if @match.outcome == nil %>
-    <a href="/current/1">Bet another match</a>
-  <% else %>
-    <a href="/past">Go back</a>
-  <% end %>
-  <br>
-</div>

@@ -1,10 +1,14 @@
 <div class="row">
   <div class="col-md-12">
+  <% if current_user.admin? %>
+
     <dl class="dl-horizontal">
        <dt>General</dt>
       <dd>
         <ul>
-          <li>P2: Create a database table for venues</li>
+          <li>P0: remove all "where" functions when possible</li>
+          <li>P2: Create a database table for venues (put Google maps api for their location?</li>
+          <li>P2: Put teams locations / Google maps api?</li>
           <!--<li><strike>P2: Close the pages access to logged in users</strike></li>
           <li><strike>P0: "Admin stuff" in the footer only accessible to admin</strike></li>-->
         </ul>
@@ -33,14 +37,15 @@
           <!-- <li><strike>Footer not sticking in the bottom of page</strike></li> -->
         </ul>
       </dd>
-      <dt><a href="current/1">Current matches</a></d>
+      <dt>Current matches</d>
       <dd>
         <ul>
 
-          <li>P0: Matches which already have been bet should not appear</li>
           <li>P2: The row containing the team logos break when screen width is too small (squeeze them?)</li>
           <li>P2: Put the X as an image?</li>
-          <!-- <li><strike>P1: change the footer link from match_id 1 to one he did not bet yet</strike></li>
+          <!--
+          <li><strike>P0: Matches which already have been bet should not appear</strike></li>
+          <li><strike>P1: change the footer link from match_id 1 to one he did not bet yet</strike></li>
           <li><strike>P0: In the form, change the static user_id to a dynamic one</strike></li>
           <li><strike>P2: Footer: increase margin between borde and top of "Matches" and "Project"</strike></li> -->
         </ul>
@@ -48,20 +53,20 @@
       <dt><a href="/current/bets/1">Current bets page</a></dt>
       <dd>
         <ul>
-          <li>Validation message</li>
-          <li>In the index, filter only those matches who did not occur AND the user has bet</li>
           <li>"You" badge is breaking the row when screen width is too small</li>
           <!-- <li><strike>Put "You" badges in other lines as well</strike></li>
           <li><strike>Create class name for "You" badges: put xs rather than sm</strike></li>
+          <li><strike>P0: In the index, filter only those matches who did not occur AND the user has bet</strike></li>
           <li><strike>Align" Check another match", check bottom border</strike></li> -->
         </ul>
       </dd>
-      <dt>Match_index.html</dt>
+<!--       <dt>Match_index.html</dt>
       <dd>
         <ul>
-          <li>P2: Correct the glyphicon</li>
+          <li><strike>P2: Correct the glyphicon</strike></li>
         </ul>
       </dd>
+ -->
       <dt>pastResults.html</dt>
       <dd>
       <ul>
@@ -83,6 +88,7 @@
       <dt>Create bet</dt>
       <dd>
         <ul>
+          <li>P0: fix that ID stuff in the form</li>
           <!-- <li><strike>P0: Input validation (no user can bet more than once)</strike></li> -->
         </ul>
       <dd>
@@ -92,6 +98,7 @@
       <dd>
         <ul>
           <!-- <li><strike>P0: Validation</strike></li> -->
+          <li>P0: only accessible to admins</li>
           <li>P2: Pagination</li>
         </ul>
       </dd>
@@ -102,6 +109,7 @@
           <!-- <li><strike>P0: How to get images within the app/assets folder?</strike></li>
           <li><strike>P0: Validation</strike></li>
           <li><strike>  Create show, edit and destroy functions</strike></li> -->
+          <li>P0: only accessible to admins</li>
           <li>P2: Pagination</li>
         </ul>
       </dd>
@@ -112,8 +120,10 @@
 
           <!--
           <li><strike>P0: validation</strike></li>
+          <li><strike>P0: only accessible to admins</strike></li>
           <li><strike>P0: Validate email adress in the field</strike></li>
           <li><strike>P0: Check the Admin input. Is not working well</strike></li> -->
+          <li>P0: validation: has to have at least 1 admin</li>
           <li>P2: send email for confirmation of the user</li>
           <li>P2: Pagination</li>
         </ul>
@@ -123,6 +133,7 @@
       <dd>
         <ul>
           <li>P0: Validation: home_team different from away team</li>
+          <li>P0: only accessible to admins</li>
           <!-- <li><strike>P0: Create the many-to-many association</strike></li>
           <li><strike>P0: Round number, scores and user_id are not being registered</strike></li>
           <li><strike>P1: Insert match outcome and user id in the database</strike></li>
@@ -132,5 +143,8 @@
         </ul>
       </dd>
     </dl>
+    <% else %>
+      <p>Page unavailable =(</p>
+    <% end %>
   </div>
 </div>
