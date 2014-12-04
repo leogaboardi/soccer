@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20141128162551) do
 
   create_table "matches", force: true do |t|
     t.string   "tournament"
+    t.string   "label"
     t.integer  "round"
     t.date     "match_on"
     t.time     "match_at"

@@ -120,13 +120,12 @@
   <div class="col-md-12">
     <br>
     <% if @match.outcome == nil %>
-      <a href="/current/<%= @match_link %>">Bet another match</a>
+      <div style="text-align:center">
+        <a class="btn btn-primary btn-lg" href="/current/<%= @match_link %>">Bet another match</a>
+      </div>
     <% else %>
       <a href="/past">Go back</a>
     <% end %>
     <br>
   </div>
 </div>
-  <div class="col-md-12">
-    <br>
-  </div>

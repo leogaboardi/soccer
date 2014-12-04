@@ -3,6 +3,14 @@ class BetController < ApplicationController
   # For APIs, you may want to use :null_session instead.
 
   before_action :authenticate_user!
+  before_action :check_if_admin #, only[:index, :create, :update]
+
+  #Checks if current_user is admin, and therefore can play around with the Team table
+  def check_if_admin
+    if not current_user.admin?
+      redirect_to "/"
+    end
+  end
 
   def index
     @bet = Bet.all
@@ -49,8 +57,8 @@ class BetController < ApplicationController
   end
 
   def destroy
-    @team = Bet.find(params[:id])
-    @team.destroy
-    @alert_destroy = true
+    @bet = Bet.find(params[:id])
+    @bet.destroy
+    redirect_to "/bets", :notice => "Bet deleted."
   end
 end

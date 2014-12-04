@@ -3,6 +3,15 @@ class UserController < ApplicationController
   # For APIs, you may want to use :null_session instead.
 
   before_action :authenticate_user!
+  before_action :check_if_admin #, only[:index, :create, :update]
+
+  #Checks if current_user is admin, and therefore can play around with the Team table
+  def check_if_admin
+    if not current_user.admin?
+      redirect_to "/"
+    end
+  end
+
   def index
     @user = User.all
   end
@@ -54,8 +63,7 @@ class UserController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    if current_user.admin?
-      @user.destroy
-    end
+    @user.destroy
+    redirect_to "/users", :notice => "User deleted."
   end
 end

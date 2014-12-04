@@ -2,14 +2,28 @@
   <div class="col-md-12">
   <br>
     <dl class="dl-horizontal">
+      <% if @bet.user.present? %>
       <dt>User ID</dt>
       <dd><%= @bet.user_id %></dd>
       <dt>Username</dt>
       <dd><%= @bet.user.username %></dd>
+      <% end %>
       <dt>Match ID</dt>
-      <dd><%= @bet.match_id %></dd>
+      <dd>
+        <% if @bet.match.present? %>
+        <%= @bet.match_id %>
+        <% else %>
+        Error: match not found!
+        <% end %>
+      </dd>
       <dt>Match</dt>
-      <dd><%= @bet.match.home_team.label %> x <%= @bet.match.away_team.label %> (<%= @bet.match.match_on%>)</dd>
+      <dd>
+        <% if @bet.match.present? %>
+        <%= @bet.match.label %>
+        <% else %>
+        Error: match not found!
+        <% end %>
+      </dd>
       <dt>Bet</dt>
       <dd>
         <% case @bet.bet %>

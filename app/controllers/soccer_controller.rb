@@ -2,7 +2,7 @@ class SoccerController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
 
   def current_match_link #Creates the link for the "GUESS A MATCH" button
 

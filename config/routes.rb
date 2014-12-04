@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
 
   devise_for :users
   root 'soccer#index'
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # READ MATCH WITHOUT BET
   get("/current/done", { :controller => "soccer", :action => "no_bet_left" })
   get("/current/:id", { :controller => "soccer", :action => "match_bet" })
-  get("/create_bet", { :controller => "soccer", :action => "create_bet" })
+  get("/create_current_bet", { :controller => "soccer", :action => "create_bet" })
 
   # READ MATCH WITH BET
   get("/current", { :controller => "soccer", :action => "current_index" })

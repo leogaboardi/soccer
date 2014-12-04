@@ -3,6 +3,14 @@ class MatchController < ApplicationController
   # For APIs, you may want to use :null_session instead.
 
   before_action :authenticate_user!
+  before_action :check_if_admin #, only[:index, :create, :update]
+
+  #Checks if current_user is admin, and therefore can play around with the Team table
+  def check_if_admin
+    if not current_user.admin?
+      redirect_to "/"
+    end
+  end
 
   def index
     @match = Match.all
@@ -29,6 +37,10 @@ class MatchController < ApplicationController
     @match.home_goal = params[:home_goal]
     @match.away_goal = params[:away_goal]
     @match.user_id = params[:user_id]
+
+    if @match.home_team_id!=nil and @match.away_team_id!=nil
+      @match.label =  @match.home_team.label +  " x " + @match.away_team.label
+    end
 
     if @match.home_goal!=nil and @match.home_goal!=nil
       if @match.home_goal > @match.away_goal
@@ -65,6 +77,11 @@ class MatchController < ApplicationController
     @match.away_goal = params[:away_goal]
     @match.user_id = params[:user_id]
 
+    if @match.home_team_id!=nil and @match.away_team_id!=nil
+      @match.label =  @match.home_team.label +  " x " + @match.away_team.label
+    end
+
+
     if @match.home_goal!=nil and @match.home_goal!=nil
       if @match.home_goal > @match.away_goal
         @match.outcome = 1
@@ -85,6 +102,6 @@ class MatchController < ApplicationController
   def destroy
     @match = Match.find(params[:id])
     @match.destroy
-    @alert_destroy = true
+    redirect_to "/matches", :notice => "Match deleted."
   end
 end

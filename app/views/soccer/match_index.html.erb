@@ -33,11 +33,23 @@
         <% end  %>
         </td>
         <td><%= match.venue %></td>
-        <td><img src="/<%= match.home_team.crest %>" class="crest"></td>
+        <td>
+          <% if match.home_team.present? %>
+            <img src="/<%= match.home_team.crest %>" class="crest">
+            <% else %>
+            Error: team not found!
+          <% end %>
+        </td>
         <td><%= match.home_goal %></td>
         <td >X</td>
         <td><%= match.away_goal %></td>
-        <td><img src="/<%= match.away_team.crest %>" class="crest"></td>
+        <td>
+          <% if match.away_team.present? %>
+            <img src="/<%= match.away_team.crest %>" class="crest">
+            <% else %>
+            Error: team not found!
+          <% end %>
+        </td>
         <td><a href="<%= @link %><%= match.id %>" class="btn btn-primary" style="margin: 10px"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a></td>
       </tr>
       <% end %>

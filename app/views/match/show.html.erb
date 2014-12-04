@@ -2,6 +2,8 @@
   <div class="col-md-8">
     <h4>Match information</h4>
     <dl class="dl-horizontal">
+      <dt>Label</dt>
+      <dd><%= @match.label %></dd>
       <dt>Tournament</dt>
       <dd><%= @match.tournament %></dd>
       <dt>Round</dt>
@@ -21,11 +23,23 @@
       <dt>Match venue</dt>
       <dd><%= @match.venue %></dd>
       <dt>Home team</dt>
-      <dd><%= @match.home_team.label %></dd>
+      <dd>
+      <% if @match.home_team.present?  %>
+      <%= @match.home_team.label %>
+      <% else %>
+      Error: home team not found!
+      <% end %>
+      </dd>
       <dt>Home team score</dt>
       <dd><%= @match.home_goal %></dd>
       <dt>Away team</dt>
-      <dd><%= @match.away_team.label %></dd>
+      <dd>
+      <% if @match.away_team.present?  %>
+      <%= @match.away_team.label %>
+      <% else %>
+      Error: away team not found!
+      <% end %>
+      </dd>
       <dt>Away team score</dt>
       <dd><%= @match.away_goal %></dd>
       <dt>Outcome</dt>

@@ -6,9 +6,11 @@
       <div class="col-md-8 col-md-offset-4">
         <h2>[Soccer project]</h2>
         <p>[Soccer project] is a data mining project which acurately predicts the outcome of future soccer matches. Want to check the odds of your favourite team, or if your gut feeling is better than your frieds and our SoccerBot&#0153?</p>
-        <div style="text-align:center">
-        <a class="btn btn-primary btn-lg" href="/users/sign_up">Join Now!</a>
-        </div>
+          <% if not current_user.present? %>
+          <div style="text-align:center">
+            <a class="btn btn-primary btn-lg" href="/users/sign_up">Join Now!</a>
+          </div>
+          <% end %>
       </div>
     </div>
     <div class="row">
@@ -27,20 +29,23 @@
 
           <h3>Decision makers</h3>
           <p class="text-left">Do you think that [Unnamed soccer project] is just a fun toy to play with your friends? Think again. Our data driven methodology can be used in virtually any field, from business to medicine. Want to improve your company sales, or check the odds of your patient have a certain disease? We might help you!</p>
+          <% if not current_user.present? %>
           <div style="text-align:center">
-          <a class="btn btn-primary btn-lg" href="/users/sign_up">Join Now!</a>
-        </div>
+            <a class="btn btn-primary btn-lg" href="/users/sign_up">Join Now!</a>
+          </div>
+          <% end %>
       </div>
     <div class="row">
       <div class="col-md-12">
         <br>
         <br>
 
+        <% if not current_user.present? %>
         <h2>What are you waiting for?</h2>
         <div style="text-align:center">
           <a class="btn btn-primary btn-lg" href="/users/sign_up">Join Now!</a>
-
         </div>
+        <% end %>
       </div>
       <div class="col-md-12">
         <br>

@@ -437,6 +437,7 @@ matches.each do |new_match|
   match.away_goal = new_match[:away_goal]
   match.outcome = new_match[:outcome]
   match.user_id = new_match[:user_id]
+  match.label =  match.home_team.label +  " x " + match.away_team.label
   match.save
 end
 

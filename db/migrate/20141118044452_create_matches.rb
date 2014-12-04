@@ -2,6 +2,7 @@ class CreateMatches < ActiveRecord::Migration
   def change
     create_table :matches do |t|
       t.string :tournament
+      t.string :label
       t.integer :round
       t.date :match_on
       t.time :match_at

@@ -29,26 +29,36 @@
         </tr>
         <%  @user.bets.each do |bet|  %>
         <tr>
-        <td> <%= bet.match.home_team.label %> x <%= bet.match.away_team.label %> (<%= bet.match.match_on%>)</td>
+        <td>
+        <% if bet.match.present? and bet.match.home_team.present? and bet.match.away_team.present? %>
+        <%= bet.match.home_team.label %> x <%= bet.match.away_team.label %> (<%= bet.match.match_on%>)
+        <% end %>
+        </td>
         <td>
           <% case bet.bet %>
             <% when 1 %>
-            <%= bet.match.home_team.label %>
+            <% if bet.match.present? and bet.match.home_team.present? and bet.match.away_team.present? %>
+              <%= bet.match.home_team.label %>
+            <% end %>
           <% when 0 %>
             Draw
           <% when -1 %>
-            <%= bet.match.away_team.label %>
+            <% if bet.match.present? and bet.match.home_team.present? and bet.match.away_team.present? %>
+              <%= bet.match.away_team.label %>
+            <% end %>
           <% end %>
         </td>
         <td>
-          <% case bet.match.outcome %>
-            <% when 1 %>
-            <%= bet.match.home_team.label %>
-          <% when 0 %>
-            Draw
-          <% when -1 %>
-            <%= bet.match.away_team.label %>
+          <% if bet.match.present? and bet.match.home_team.present? and bet.match.away_team.present? %>
+            <% case bet.match.outcome %>
+              <% when 1 %>
+              <%= bet.match.home_team.label %>
+            <% when 0 %>
+              Draw
+            <% when -1 %>
+              <%= bet.match.away_team.label %>
 
+            <% end %>
           <% end %>
         </td>
         <td>
