@@ -77,7 +77,13 @@
         </tr>
         <%  @match.bets.each do |bet|  %>
         <tr>
-        <td> <%= bet.user.username %> </td>
+        <td>
+          <% if bet.user.present?  %>
+          <%= bet.user.username %>
+          <% else %>
+          Error: bet user not found!
+          <% end %>
+        </td>
         <td>
           <% case bet.bet %>
             <% when 1 %>

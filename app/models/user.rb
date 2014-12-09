@@ -7,5 +7,12 @@ class User < ActiveRecord::Base
   has_many :matches
 
   validates :username, :presence => true, :uniqueness => true
+  before_destroy  :at_least_one_admin
 
+  def at_least_one_admin
+    if email == "leonardo@example.com"
+      errors.add(username, " can't be deleted")
+      return false
+    end
+  end
 end

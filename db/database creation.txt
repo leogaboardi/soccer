@@ -1,8 +1,8 @@
 #rails g model user username:string admin:boolean
 #rails g devise user
-#rails g model team name:string label:string logo:string
+#rails g model team name:string label:string crest:string
 #rails g model match tournament:string round:integer date:date time:time #venue:string home_team_id:integer away_team_id:integer home_goal:integer #away_goal:integer outcome:integer user_id:integer
 #rails g model bet match_id:integer user_id:integer guess:integer
-
+#rails g model venue name:string label:string address:string picture:string
 #:primary_key, :string, :text, :integer, :float, :decimal, :datetime, :timestamp,
 :time, :date, :binary, :boolean, :references

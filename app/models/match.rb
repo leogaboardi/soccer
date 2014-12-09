@@ -6,4 +6,13 @@ class Match < ActiveRecord::Base
   has_many :bets
 
   validates :venue, :home_team_id,:away_team_id,:match_on,  :presence => true
+  validate :home_away_different
+
+  def home_away_different
+    if home_team_id.present?
+      if home_team_id == away_team_id
+        errors.add(home_team.label, " can't be play with itself!")
+      end
+    end
+  end
 end

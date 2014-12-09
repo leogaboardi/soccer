@@ -36,6 +36,12 @@ class SoccerController < ApplicationController
 
   def index
     current_match_link
+    if current_user.present?
+      first_page = "/current/"+@match_link.to_s
+      redirect_to first_page
+    else
+      redirect_to "/users/sign_in"
+    end
   end
 
   def create_bet

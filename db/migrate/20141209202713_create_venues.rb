@@ -1,10 +1,10 @@
-class CreateTeams < ActiveRecord::Migration
+class CreateVenues < ActiveRecord::Migration
   def change
-    create_table :teams do |t|
+    create_table :venues do |t|
       t.string :name
       t.string :label
       t.string :address
-      t.string :url_picture
+      t.string :picture
 
       t.timestamps
     end
