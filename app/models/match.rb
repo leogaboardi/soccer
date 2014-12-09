@@ -3,9 +3,11 @@ class Match < ActiveRecord::Base
   belongs_to(:away_team, { :class_name => "Team", :foreign_key => "away_team_id" })
   belongs_to(:creator, { :class_name => "User", :foreign_key => "user_id" })
 
+  belongs_to :venue
+
   has_many :bets
 
-  validates :venue, :home_team_id,:away_team_id,:match_on,  :presence => true
+  validates :venue_id, :home_team_id,:away_team_id,:match_on,  :presence => true
   validate :home_away_different
 
   def home_away_different

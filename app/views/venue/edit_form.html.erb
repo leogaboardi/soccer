@@ -18,7 +18,7 @@
       <!-- Label and input for venue name -->
       <div class="form-group">
         <label for="label" class="col-sm-3 control-label">
-          venue name
+          Venue name
         </label>
         <div class="col-sm-9">
           <input type="text" id="label" name="label" value="<%= @venue.label %>" class="form-control">
@@ -35,13 +35,33 @@
         </div>
       </div>
 
-      <!-- Label and input for crest_url -->
+      <!-- Label and input for capacity -->
       <div class="form-group">
-        <label for="crest_url" class="col-sm-3 control-label">
-          Crest url
+        <label for="capacity" class="col-sm-3 control-label">
+          Venue capacity
         </label>
         <div class="col-sm-9">
-          <input type="text" id="crest_url" name="crest_url" value="<%= @venue.crest %>" class="form-control">
+          <input type="text" id="capacity" name="capacity" value="<%= @venue.capacity %>" class="form-control">
+        </div>
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="col-sm-3 control-label">
+          Venue address
+        </label>
+        <div class="col-sm-9">
+          <input type="text" id="address" name="address" value="<%= @venue.address %>" class="form-control">
+        </div>
+      </div>
+
+      <!-- Label and input for picture -->
+      <div class="form-group">
+        <label for="picture_url" class="col-sm-3 control-label">
+          Venue picture
+        </label>
+        <div class="col-sm-9">
+          <input type="text" id="picture_url" name="picture_url" value="<%= @venue.picture_url %>" class="form-control">
         </div>
       </div>
 

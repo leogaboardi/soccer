@@ -4,7 +4,8 @@ class CreateVenues < ActiveRecord::Migration
       t.string :name
       t.string :label
       t.string :address
-      t.string :picture
+      t.string :picture_url
+      t.integer :capacity
 
       t.timestamps
     end

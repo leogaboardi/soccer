@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141209202713) do
     t.integer  "round"
     t.date     "match_on"
     t.time     "match_at"
-    t.string   "venue"
+    t.string   "venue_id"
     t.integer  "home_team_id"
     t.integer  "away_team_id"
     t.integer  "home_goal"
@@ -70,7 +70,8 @@ ActiveRecord::Schema.define(version: 20141209202713) do
     t.string   "name"
     t.string   "label"
     t.string   "address"
-    t.string   "picture"
+    t.string   "picture_url"
+    t.integer  "capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

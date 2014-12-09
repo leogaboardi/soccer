@@ -21,7 +21,13 @@
         <% end  %>
       </dd>
       <dt>Match venue</dt>
-      <dd><%= @match.venue %></dd>
+      <dd>
+      <% if @match.venue.present?  %>
+        <%= @match.venue.label %>
+        <% else %>
+        Error: Venue not found!
+        <% end %>
+      </dd>
       <dt>Home team</dt>
       <dd>
       <% if @match.home_team.present?  %>

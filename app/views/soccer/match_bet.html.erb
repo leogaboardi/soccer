@@ -15,6 +15,10 @@
           <% if !@match.match_at.nil?  %>
             <%= @match.match_at.strftime("%H:%M") %>
           <% end  %>
+
+          <% if @match.venue.present?  %>
+            - <%= @match.venue.label %>
+          <% end  %>
     </h3>
   </div>
 <div class="row">
@@ -55,6 +59,7 @@
     </form>
   </div>
 </div>
+
 <!-- Pagination -->
 <div class="row" style="text-align: center">
   <div class="col-lg-12">

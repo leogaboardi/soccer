@@ -3,24 +3,66 @@
     <h1><%= @venue.label %></h1>
     <br>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-12">
   <br>
-    <h4>venue data</h4>
+    <h4>Venue data</h4>
     <dl class="dl-horizontal">
-      <dt>venue name</dt>
+      <dt>Venue name</dt>
       <dd><%= @venue.label %></dd>
       <dt>System name</dt>
       <dd><%= @venue.name %></dd>
-      <dt>Crest URL</dt>
-      <dd><%= @venue.crest %></dd>
+      <dt>Capacity</dt>
+      <dd><%= @venue.capacity %></dd>
+      <dt>Address</dt>
+      <dd><%= @venue.address %></dd>
+      <dt>Latitude</dt>
+      <dd><%= @latitude %></dd>
+      <dt>Longitude</dt>
+      <dd><%= @longitude %></dd>
+      <dt>Picture URL</dt>
+      <dd><%= @venue.picture_url %></dd>
+
     </dl>
   </div>
-  <div class="col-md-4">
-    <img src="/<%= @venue.crest %>">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="<%= @venue.picture_url %>" class="thumbnail">
+    </div>
+    <div class="col-md-8">
+      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+      <script>
+        var map;
+        function initialize() {
+
+          var myLatlng = new google.maps.LatLng(<%= @latitude %>, <%= @longitude %>);
+
+          var mapOptions = {
+            zoom: 4,
+            center: myLatlng
+          };
+
+          map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+          var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: '<%= @venue.name %>'
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+      </script>
+      <div id="map-canvas"></div>
+    </div>
+
+
+
   </div>
-  <div class="col-md-12">
-    <br>
-    <a href="/venues">Go back</a>
-    <br>
-  </div>
+    <div class="col-md-12">
+      <br>
+      <a href="/venues">Go back</a>
+      <br>
+    </div>
 </div>

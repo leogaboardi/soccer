@@ -187,7 +187,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-29",
     :match_at => "2000-01-01 19:30:00",
-    :venue => "Heriberto Hulse",
+    :venue_id => 12,
     :home_team_id => 1,
     :away_team_id => 2,
     :user_id => 1
@@ -198,7 +198,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-29",
     :match_at => "2000-01-01 19:30:00",
-    :venue => "Beira-Rio",
+    :venue_id => 13,
     :home_team_id => "3",
     :away_team_id => "4",
     :user_id => 1
@@ -209,7 +209,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-29",
     :match_at => "2000-01-01 21:00:00",
-    :venue => "Arena da Amazônia",
+    :venue_id => 14,
     :home_team_id => "5",
     :away_team_id => "6",
     :user_id => 1
@@ -220,7 +220,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-30",
     :match_at => "2000-01-01 17:00:00",
-    :venue => "Vila Belmiro",
+    :venue_id => 15,
     :home_team_id => "7",
     :away_team_id => "8",
     :user_id => 1
@@ -231,7 +231,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-30",
     :match_at => "2000-01-01 17:00:00",
-    :venue => "Arena Condá",
+    :venue_id => 16,
     :home_team_id => "9",
     :away_team_id => "10",
     :user_id => 1
@@ -242,7 +242,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-30",
     :match_at => "2000-01-01 17:00:00",
-    :venue => "Maracanã",
+    :venue_id => 1,
     :home_team_id => "11",
     :away_team_id => "12",
     :user_id => 1
@@ -253,7 +253,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-30",
     :match_at => "2000-01-01 17:00:00",
-    :venue => "Morumbi",
+    :venue_id => 17,
     :home_team_id => "13",
     :away_team_id => "14",
     :user_id => 1
@@ -264,7 +264,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-30",
     :match_at => "2000-01-01 19:30:00",
-    :venue => "Arena da Baixada",
+    :venue_id => 19,
     :home_team_id => "15",
     :away_team_id => "16",
     :user_id => 1
@@ -275,7 +275,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-30",
     :match_at => "2000-01-01 19:30:00",
-    :venue => "Independência",
+    :venue_id => 20,
     :home_team_id => "17",
     :away_team_id => "18",
     :user_id => 1
@@ -286,7 +286,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-30",
     :match_at => "2000-01-01 19:30:00",
-    :venue => "Fonte Nova",
+    :venue_id => 1,
     :home_team_id => "19",
     :away_team_id => "20",
     :user_id => 1
@@ -296,7 +296,7 @@ matches = [
     :round => 36,
     :match_on => "2014-11-22",
     :match_at => "2000-01-01 19:30:00",
-    :venue => "Beira Rio",
+    :venue_id => 14,
     :home_team_id => "3",
     :away_team_id => "17",
     :home_goal => 2,
@@ -309,7 +309,7 @@ matches = [
     :round => 36,
     :match_on => "2014-11-22",
     :match_at => "2000-01-01 21:00:00",
-    :venue => "Fonte Nova",
+    :venue_id => 1,
     :home_team_id => "19",
     :away_team_id => "15",
     :home_goal => 1,
@@ -322,7 +322,7 @@ matches = [
     :round => 36,
     :match_on => "2014-11-23",
     :match_at => "2000-01-01 17:00:00",
-    :venue => "Castelão/MA",
+    :venue_id => 1,
     :home_team_id => 5,
     :away_team_id => 1,
     :home_goal => 1,
@@ -335,7 +335,7 @@ matches = [
     :round => 36,
     :match_on => "2014-11-23",
     :match_at => "2000-01-01 17:00:00",
-    :venue => "Arena Pantanal",
+    :venue_id => 1,
     :home_team_id => 7,
     :away_team_id => 13,
     :home_goal => 0,
@@ -348,7 +348,7 @@ matches = [
     :round => 36,
     :match_on => "2014-11-23",
     :match_at => "2000-01-01 17:00:00",
-    :venue => "Arena Pernambuco",
+    :venue_id => 10,
     :home_team_id => 2,
     :away_team_id => 11,
     :home_goal => 2,
@@ -361,7 +361,7 @@ matches = [
     :round => 36,
     :match_on => "2014-11-23",
     :match_at => "2000-01-01 17:00:00",
-    :venue => "Orlando Scarpelli",
+    :venue_id => 3,
     :home_team_id => 14,
     :away_team_id => 6,
     :home_goal => 2,
@@ -374,7 +374,7 @@ matches = [
     :round => 36,
     :match_on => "2014-11-23",
     :match_at => "2000-01-01 17:00:00",
-    :venue => "Mineirão",
+    :venue_id => 7,
     :home_team_id => 10,
     :away_team_id => 16,
     :home_goal => 2,
@@ -387,7 +387,7 @@ matches = [
     :round => 36,
     :match_on => "2014-11-23",
     :match_at => "2000-01-01 19:30:00",
-    :venue => "Arena Condá",
+    :venue_id => 16,
     :home_team_id => 9,
     :away_team_id => 8,
     :home_goal => 2,
@@ -400,7 +400,7 @@ matches = [
     :round => 36,
     :match_on => "2014-11-23",
     :match_at => "2000-01-01 19:30:00",
-    :venue => "Arena Corinthians",
+    :venue_id => 3,
     :home_team_id => 12,
     :away_team_id => 20,
     :home_goal => 1,
@@ -413,7 +413,7 @@ matches = [
     :round => 36,
     :match_on => "2014-11-23",
     :match_at => "2000-01-01 19:30:00",
-    :venue => "Couto Pereira",
+    :venue_id => 12,
     :home_team_id => 18,
     :away_team_id => 4,
     :home_goal => 2,
@@ -430,7 +430,7 @@ matches.each do |new_match|
   match.round = new_match[:round]
   match.match_on = new_match[:match_on]
   match.match_at = new_match[:match_at]
-  match.venue = new_match[:venue]
+  match.venue_id = new_match[:venue_id]
   match.home_team_id = new_match[:home_team_id]
   match.away_team_id = new_match[:away_team_id]
   match.home_goal = new_match[:home_goal]
@@ -484,4 +484,150 @@ bets.each do |new_bet|
   bet.match_id = new_bet[:match_id]
   bet.bet = new_bet[:bet]
   bet.save
+end
+
+venues = [
+  {
+      :name => "maracana_rj",
+      :label => "Maracanã (RJ)",
+      :address => " Avenida Presidente Castelo Branco, s/n - Portão 2 - Maracanã, Rio de Janeiro - RJ, 20271-130, Brazil",
+      :picture_url => "http://upload.wikimedia.org/wikipedia/commons/3/36/Maracan%C3%A3_Stadium_in_Rio_de_Janeiro.jpg",
+      :capacity =>78838
+  },
+  {
+      :name => "arena_corinthians_sp",
+      :label => "Arena Corinthians (SP)",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "orlando_scarpelli_sc",
+      :label => "Orlando Scarpelli (SC)",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "arena_gremio_rs",
+      :label => "Arena do Grêmio",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "serra_dourada_go",
+      :label => "Serra Dourada",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "allianz_parque_sp",
+      :label => "Allianz Parque",
+      :address => "Rua Turiassu, 1840 - Perdizes, São Paulo - SP, 05005-000, Brazil",
+      :picture_url => "http://www.baressp.com.br/bares/fotos/allianzparque3.jpg",
+      :capacity => 43600
+  },
+  {
+      :name => "mineirao_mg",
+      :label => "Mineirão",
+      :address => "Avenida Antônio Abrahão Caram, 1001 - São José (Pampulha), Belo Horizonte - MG, 31275-000, Brazil",
+      :picture_url => "http://upload.wikimedia.org/wikipedia/commons/e/e3/Novo_mineir%C3%A3o_a%C3%A9rea.jpg",
+      :capacity => 58170
+  },
+  {
+      :name => "mane_garrincha_df",
+      :label => "Mané Garrincha",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "manoel_barradas_ba",
+      :label => "Manoel Barradas",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "arena_pernambuco_pe",
+      :label => "Arena Pernambuco",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "couto_pereira_pr",
+      :label => "Couto Pereira",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "heriberto_hulse_sc",
+      :label => "Heriberto Hulse",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "beira_rio_rs",
+      :label => "Beira-Rio",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "arena_da_amazonia_am",
+      :label => "Arena da Amazônia",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "vila_belmiro_sp",
+      :label => "Vila Belmiro",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "arena_conda_sc",
+      :label => "Arena Condá",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "morumbi_sp",
+      :label => "Morumbi",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "arena_da_baixada_sc",
+      :label => "Arena da Baixada",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  },
+  {
+      :name => "independencia_mg",
+      :label => "Independência",
+      :address => "",
+      :picture_url => "",
+      :capacity => 1
+  }
+]
+
+venues.each do |new_venue|
+  venue = Venue.new
+  venue.name = new_venue[:name]
+  venue.label = new_venue[:label]
+  venue.address = new_venue[:address]
+  venue.picture_url = new_venue[:picture_url]
+  venue.capacity = new_venue[:capacity]
+  venue.save
 end

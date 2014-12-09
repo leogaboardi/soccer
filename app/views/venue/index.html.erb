@@ -5,9 +5,8 @@
     <p><a href="/venues/new_form" class="btn btn-primary">Add new venue</a></p>
     <table class="table table-striped">
       <tr>
-        <th>venue name</th>
+        <th>Venue name</th>
         <th>System name</th>
-        <th class="text-center">Logo</th>
         <th></th>
         <th></th>
         <th></th>
@@ -16,14 +15,12 @@
       <tr>
         <td ><%= venue.label %></td>
         <td ><%= venue.name %></td>
-        <td ><img  src="<%= venue.crest %>" style="max-height: 50px; max-width: 50px"></td>
         <td><a href="venues/<%= venue.id %>">View</a></td>
         <td><a href="venues/<%= venue.id %>/edit_form">Edit</a></td>
         <td><a href="venues/<%= venue.id %>/delete">Delete</a></td>
       </tr>
       <% end %>
       <tr>
-        <td></td>
         <td></td>
         <td></td>
         <td></td>

@@ -34,12 +34,10 @@ p{
   margin-right: auto;
   margin-left: auto;
   padding: 0px;
-  /*border: thin solid red;*/
   width: 100%;
   max-width: 110px;
   max-height: 110px;
 }
-
 
 .customizeMenu{
   float: left;
@@ -78,6 +76,10 @@ p{
   height: 130px;
 }
 
+.thumbnail{
+  max-width: 100%;
+  max-height: 100%;
+}
 #background{
   position: fixed;
   display: block;
@@ -87,6 +89,11 @@ p{
   height: 1200px;
   width: 1600px;
   z-index: -1;
+}
+
+#map-canvas {
+  width: 600px;
+  height: 400px
 }
 
 #navbar {

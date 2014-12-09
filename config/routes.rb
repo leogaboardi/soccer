@@ -105,4 +105,23 @@
 
   # DELETE
   get('/bets/:id/delete', { :controller => 'bet', :action => 'destroy' })
+
+  ##### ##### ##### ##### ##### ##### ##### #####
+  ##### Routes for the Venue resource:
+  ##### ##### ##### ##### ##### ##### ##### #####
+
+  # CREATE
+  get('/venues/new_form', { :controller => 'venue', :action => 'new_form' })
+  get('/create_venue', { :controller => 'venue', :action => 'create_row' })
+
+  # READ
+  get('/venues', { :controller => 'venue', :action => 'index' })
+  get('/venues/:id', { :controller => 'venue', :action => 'show' })
+
+  # UPDATE
+  get('/venues/:id/edit_form', { :controller => 'venue', :action => 'edit_form' })
+  get('/update_venues/:id', { :controller => 'venue', :action => 'update_row' })
+
+  # DELETE
+  get('/venues/:id/delete', { :controller => 'venue', :action => 'destroy' })
 end

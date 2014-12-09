@@ -16,6 +16,10 @@
           <% if @match.match_at.present?  %>
             <%= @match.match_at.strftime("%H:%M") %>
           <% end  %>
+
+          <% if @match.venue.present?  %>
+            - <%= @match.venue.label %>
+          <% end  %>
     </h3>
   </div>
   <div class="row" >

@@ -108,6 +108,7 @@ class SoccerController < ApplicationController
   def match_bet
     @match = Match.find(params[:id])
 
+
     ##### ##### ##### ##### ##### ##### #####
     # Algorithm below populates the PREVIOUS/NEXT buttons with the IDs
     # of matches that did not occur yet, and the user did not bet yet

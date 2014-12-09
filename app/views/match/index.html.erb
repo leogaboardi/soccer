@@ -33,7 +33,13 @@
           <%= match.match_at.strftime("%H:%M") %>
         <% end  %>
         </td>
-        <td><%= match.venue %></td>
+        <td>
+        <% if match.venue.present? %>
+          <%= match.venue.label %>
+        <% else %>
+        Error: Venue not found!
+        <% end %>
+        </td>
         <td>
         <% if match.home_team.present? %>
           <img src="<%= match.home_team.crest %>" class="crest">

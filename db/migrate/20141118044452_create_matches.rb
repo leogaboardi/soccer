@@ -6,7 +6,7 @@ class CreateMatches < ActiveRecord::Migration
       t.integer :round
       t.date :match_on
       t.time :match_at
-      t.string :venue
+      t.string :venue_id
       t.integer :home_team_id
       t.integer :away_team_id
       t.integer :home_goal

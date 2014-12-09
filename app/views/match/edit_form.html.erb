@@ -58,7 +58,12 @@
           <div class="dropdown customizeMenu">
             <select class="form-control" id="match_at" name="match_at" >
               <option>4:00 PM</option>
+              <option>4:30 PM</option>
+              <option>5:00 PM</option>
               <option>6:30 PM</option>
+              <option>7:30 PM</option>
+              <option>9:00 PM</option>
+              <option>9:50 PM</option>
               <option>10:00 PM</option>
             </select>
           </div>
@@ -69,7 +74,9 @@
       <div class="form-group">
         <label for="venue" class="col-sm-3 control-label">Venue</label>
         <div class="col-sm-9">
-          <input type="text" id="venue" name="venue" placeholder="Venue" class="form-control" value="<%= @match.venue %>">
+          <div class="dropdown customizeMenu">
+            <%= select_tag(:venue_id, options_from_collection_for_select(Venue.order("label"), :id, :label, @match.venue_id),:include_blank =>:true, :class => "form-control") %>
+          </div>
         </div>
       </div>
 
