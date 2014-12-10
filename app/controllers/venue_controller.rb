@@ -6,7 +6,7 @@ class VenueController < ApplicationController
   # For APIs, you may want to use :null_session instead.
 
   before_action :authenticate_user!
-  before_action :check_if_admin #, only[:index, :create, :update]
+  before_action :check_if_admin
 
   #Checks if current_user is admin, and therefore can play around with the venue table
   def check_if_admin

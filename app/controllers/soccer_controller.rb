@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'json'
+
 class SoccerController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -101,12 +104,43 @@ class SoccerController < ApplicationController
       @user_bet = @match.bets.where({:user_id => user_id}).first.bet
     end
 
+
+    ##### ##### ##### ##### ##### ##### #####
+    # Renders the venue location (google maps API)
+
+    if @match.venue.present?
+      if @match.venue.address.present?
+        url_safe_address = URI.encode(@match.venue.address)
+        url_of_data = "http://maps.googleapis.com/maps/api/geocode/json?address=#{url_safe_address}"
+        raw_data = open(url_of_data).read
+        parsed_data = JSON.parse(raw_data)
+
+        @latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
+        @longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
+      end
+    end
+
     current_match_link
   end
 
 
   def match_bet
     @match = Match.find(params[:id])
+
+    ##### ##### ##### ##### ##### ##### #####
+    # Renders the venue location (google maps API)
+
+    if @match.venue.present?
+      if @match.venue.address.present?
+        url_safe_address = URI.encode(@match.venue.address)
+        url_of_data = "http://maps.googleapis.com/maps/api/geocode/json?address=#{url_safe_address}"
+        raw_data = open(url_of_data).read
+        parsed_data = JSON.parse(raw_data)
+
+        @latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
+        @longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
+      end
+    end
 
 
     ##### ##### ##### ##### ##### ##### #####

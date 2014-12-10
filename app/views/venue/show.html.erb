@@ -57,7 +57,24 @@
       <div id="map-canvas"></div>
     </div>
 
+<div class="col-md-12">
+    <h4>Matches</h4>
+    <table class="table table-striped">
+        <tr>
+          <th>Match</th>
+          <th>Date</th>
+        </tr>
+        <%  @venue.matches.each do |matches|  %>
+        <tr>
+          <td><a href="/matches/<%= matches.id %>"><%= matches.label %></a></td>
+          <td><%= matches.match_on %></td>
+        </tr>
 
+
+
+        <% end %>
+    </table>
+  </div>
 
   </div>
     <div class="col-md-12">

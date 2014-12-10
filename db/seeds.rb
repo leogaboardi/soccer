@@ -497,23 +497,23 @@ venues = [
   {
       :name => "arena_corinthians_sp",
       :label => "Arena Corinthians (SP)",
-      :address => "",
-      :picture_url => "",
-      :capacity => 1
+      :address => "Avenida Miguel Ignácio Curi, 111 - Vila Carmosina, São Paulo - SP, 08295-005, Brazil",
+      :picture_url => "http://imguol.com/c/esporte/2014/05/08/080514---vista-aerea-do-itaquerao-nesta-quinta-feira-data-da-visita-de-dilma-rousseff-ao-estadio-1399570844978_1920x1080.jpg",
+      :capacity => 61606
   },
   {
       :name => "orlando_scarpelli_sc",
       :label => "Orlando Scarpelli (SC)",
-      :address => "",
-      :picture_url => "",
-      :capacity => 1
+      :address => "Rua Humaitá, 194 – Estreito, Florianópolis - SC, 88070-730, Brazil",
+      :picture_url => "http://www.rio2016.com/pregamestraining/sites/default/files/imagecache/620x460/Est%C3%A1dio%20a%C3%A9rea_0.JPG",
+      :capacity => 19908
   },
   {
       :name => "arena_gremio_rs",
       :label => "Arena do Grêmio",
-      :address => "",
-      :picture_url => "",
-      :capacity => 1
+      :address => "Avenida Padre Leopoldo Brentano, 110 - Humaitá, Porto Alegre - RS, 90250-590, Brazil",
+      :picture_url => "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-ash4/191063_531576843519171_667983520_o.jpg",
+      :capacity => 55662
   },
   {
       :name => "serra_dourada_go",

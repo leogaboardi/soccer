@@ -23,7 +23,7 @@
       <dt>Match venue</dt>
       <dd>
       <% if @match.venue.present?  %>
-        <%= @match.venue.label %>
+        <a href="/venues/<%= @match.venue.id %>"><%= @match.venue.label %></a>
         <% else %>
         Error: Venue not found!
         <% end %>
@@ -31,7 +31,7 @@
       <dt>Home team</dt>
       <dd>
       <% if @match.home_team.present?  %>
-      <%= @match.home_team.label %>
+        <a href="/teams/<%= @match.home_team.id %>"><%= @match.home_team.label %></a>
       <% else %>
       Error: home team not found!
       <% end %>
@@ -41,7 +41,7 @@
       <dt>Away team</dt>
       <dd>
       <% if @match.away_team.present?  %>
-      <%= @match.away_team.label %>
+        <a href="/teams/<%= @match.away_team.id %>"><%= @match.away_team.label %></a>
       <% else %>
       Error: away team not found!
       <% end %>
