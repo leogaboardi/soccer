@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bets
   has_many :matches
+  has_many :coefficients
 
   validates :username, :presence => true, :uniqueness => true
   before_destroy  :at_least_one_admin

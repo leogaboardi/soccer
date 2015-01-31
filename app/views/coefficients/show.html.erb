@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+  <br>
+    <dl class="dl-horizontal">
+      <% if @coefficient.user.present? %>
+      <dt>User ID</dt>
+      <dd><%= @coefficient.user_id %></dd>
+      <dt>Username</dt>
+      <dd><%= @coefficient.user.username %></dd>
+      <% end %>
+      <dt>Scope of the coefficient</dt>
+      <dd><%= @coefficient.scope %></dd>
+      <dt>Coefficient name</dt>
+      <dd><%= @coefficient.name %></dd>
+      <dt>Value</dt>
+      <dd><%= @coefficient.value %></dd>
+      <dt>Last edited</dt>
+      <dd><%= @coefficient.updated_at %></dd>
+    </dl>
+  </div>
+  <div class="col-md-12">
+    <br>
+    <a href="/coefficients">Go back</a>
+    <br>
+  </div>
+</div>

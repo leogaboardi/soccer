@@ -2,6 +2,10 @@
 
   devise_for :users
   root 'soccer#index'
+
+
+
+
   ##### ##### ##### ##### ##### ##### ##### #####
   ##### Routes for the "front end" (what any user can see)
   ##### ##### ##### ##### ##### ##### ##### #####
@@ -124,4 +128,14 @@
 
   # DELETE
   get('/venues/:id/delete', { :controller => 'venue', :action => 'destroy' })
+
+  ##### ##### ##### ##### ##### ##### ##### #####
+  ##### Routes for the Coefficient resource:
+  ##### ##### ##### ##### ##### ##### ##### #####
+
+  resources :coefficients
+
+  get("/import_coefficients", { :controller => "coefficients", :action => "import" })
+  post("/import_coefficients", { :controller => "coefficients", :action => "import" })
+
 end

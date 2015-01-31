@@ -170,6 +170,56 @@ teams = [
     :name => "gremio_rs",
     :label => "Grêmio",
     :crest => "assets/crests/gremio_rs.jpg"
+  },
+  {
+    :name => "bangu_rj",
+    :label => "Bangu",
+    :crest => "assets/crests/bangu_rj.png"
+  },
+    {
+    :name => "barra_mansa_rj",
+    :label => "Barra Mansa"
+  },
+    {
+    :name => "boavista_rj",
+    :label => "Boavista",
+    :crest => "assets/crests/boavista_rj.gif"
+  },
+    {
+    :name => "bonsucesso_rj",
+    :label => "Bonsucesso"
+  },
+    {
+    :name => "cabofriense_rj",
+    :label => "Cabofriense"
+  },
+    {
+    :name => "friburguense_rj",
+    :label => "friburguense"
+  },
+    {
+    :name => "macae_rj",
+    :label => "Macaé"
+  },
+    {
+    :name => "madureira_rj",
+    :label => "Madureira"
+  },
+    {
+    :name => "nova_iguacu_rj",
+    :label => "Nova Iguaçu"
+  },
+    {
+    :name => "resende_rj",
+    :label => "Resende"
+  },
+  {
+    :name => "tigres_rj",
+    :label => "Tigres-RJ"
+  },
+      {
+    :name => "volta_redonda_rj",
+    :label => "Volta Redonda"
   }
 ]
 
@@ -275,7 +325,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-30",
     :match_at => "2000-01-01 19:30:00",
-    :venue_id => 20,
+    :venue_id => 19,
     :home_team_id => "17",
     :away_team_id => "18",
     :user_id => 1
@@ -286,7 +336,7 @@ matches = [
     :round => 37,
     :match_on => "2014-11-30",
     :match_at => "2000-01-01 19:30:00",
-    :venue_id => 1,
+    :venue_id => 20,
     :home_team_id => "19",
     :away_team_id => "20",
     :user_id => 1
@@ -420,7 +470,18 @@ matches = [
     :away_goal => 0,
     :outcome => 1,
     :user_id => 1
+  },
+  {
+    :tournament => "Campeonato Carioca",
+    :round => 1,
+    :match_on => "2015-02-01",
+    :match_at => "2000-01-01 17:00:00",
+    :venue_id => 12,
+    :home_team_id => 8,
+    :away_team_id => 23,
+    :user_id => 1
   }
+
 
 ]
 
@@ -518,9 +579,9 @@ venues = [
   {
       :name => "serra_dourada_go",
       :label => "Serra Dourada",
-      :address => "",
-      :picture_url => "",
-      :capacity => 1
+      :address => "Avenida Fued José Sebba, 1170 - Jardim Goiás, Goiânia - GO, Brazil",
+      :picture_url => "http://s796.photobucket.com/user/leojr_gyn/media/20734989.jpg.html",
+      :capacity => 50049
   },
   {
       :name => "allianz_parque_sp",
@@ -539,23 +600,23 @@ venues = [
   {
       :name => "mane_garrincha_df",
       :label => "Mané Garrincha",
-      :address => "",
-      :picture_url => "",
-      :capacity => 1
+      :address => "Asa Norte, Brasília - DF, 70070-701, Brazil",
+      :picture_url => "http://upload.wikimedia.org/wikipedia/commons/e/e4/Brasilia_Stadium_-_June_2013.jpg",
+      :capacity => 69349
   },
   {
       :name => "manoel_barradas_ba",
       :label => "Manoel Barradas",
-      :address => "",
-      :picture_url => "",
-      :capacity => 1
+      :address => "Rua Artêmio Valente, 01 - Canabrava, Salvador - BA, 41260-300, Brazil",
+      :picture_url => "http://upload.wikimedia.org/wikipedia/commons/d/d5/Jogo_barradao.jpg",
+      :capacity => 35632
   },
   {
       :name => "arena_pernambuco_pe",
       :label => "Arena Pernambuco",
-      :address => "",
-      :picture_url => "",
-      :capacity => 1
+      :address => "Avenida Deus É Fiel, 01, Letra A - Jardim Penedo, São Lourenço da Mata - PE, 54710-010, Brazil",
+      :picture_url => "http://www.copa2014.gov.br/sites/default/files/styles/galeria_de_imagem_820_547/public/galeria/recife_aerea_arenapernambuco-3554.jpg",
+      :capacity => 46154
   },
   {
       :name => "couto_pereira_pr",
@@ -574,16 +635,16 @@ venues = [
   {
       :name => "beira_rio_rs",
       :label => "Beira-Rio",
-      :address => "",
-      :picture_url => "",
-      :capacity => 1
+      :address => "Avenida Padre Cacique, 891 - Praia de Belas, Porto Alegre - RS, 90810-240, Brazil",
+      :picture_url => "http://www.copa2014.gov.br/sites/default/files/styles/galeria_de_imagem_820_547/public/galeria/portoalegre_aerea_arenabeirario-33.jpg",
+      :capacity => 51300
   },
   {
       :name => "arena_da_amazonia_am",
       :label => "Arena da Amazônia",
-      :address => "",
-      :picture_url => "",
-      :capacity => 1
+      :address => "Avenida Constantino Nery, S/N - Flores, Manaus - AM, 69050-010, Brazil",
+      :picture_url => "http://www.copa2014.gov.br/sites/default/files/styles/galeria_de_imagem_820_547/public/galeria/arenaamazonia_fev2014-3_1.jpg?itok=taZixSKI",
+      :capacity => 40549
   },
   {
       :name => "vila_belmiro_sp",
@@ -619,6 +680,13 @@ venues = [
       :address => "",
       :picture_url => "",
       :capacity => 1
+  },
+    {
+      :name => "fonte_nova_ba",
+      :label => "Arena Fonte Nova",
+      :address => "Ladeira da Fonte das Pedras, s/n - Nazaré, Salvador - BA, 40050-565, Brazil",
+      :picture_url => "http://upload.wikimedia.org/wikipedia/commons/3/34/Arena_Fonte_Nova_view_from_lake_(zoom).jpg",
+      :capacity => 51708
   }
 ]
 
@@ -630,4 +698,75 @@ venues.each do |new_venue|
   venue.picture_url = new_venue[:picture_url]
   venue.capacity = new_venue[:capacity]
   venue.save
+end
+
+coefficients = [
+  {
+      :user_id => 1,
+      :scope => "attendance",
+      :name => "intercept",
+      :value => 9.35291
+  },
+  {
+      :user_id => 1,
+      :scope => "attendance",
+      :name => "timeOfDay18:15",
+      :value => 2.321435
+  },
+  {
+      :user_id => 1,
+      :scope => "attendance",
+      :name => "venuemane_garrincha",
+      :value => 0.712061
+  },
+  {
+      :user_id => 1,
+      :scope => "attendance",
+      :name => "home.teamsport_pe",
+      :value => 0.709938
+  },
+  {
+      :user_id => 1,
+      :scope => "attendance",
+      :name => "venuearena_das_dunas",
+      :value => 0.6963102
+  },
+  {
+      :user_id => 1,
+      :scope => "attendance",
+      :name => "venueolimpico_do_para",
+      :value => 0.6685318
+  },
+  {
+      :user_id => 1,
+      :scope => "attendance",
+      :name => "venuemineirao",
+      :value => 0.5700306
+  },
+  {
+      :user_id => 1,
+      :scope => "attendance",
+      :name => "venuecastelao",
+      :value => 0.5170172
+  },
+  {
+      :user_id => 1,
+      :scope => "attendance",
+      :name => "venuearena_da_baixada",
+      :value => 0.5050869
+  },
+  {
+      :user_id => 1,
+      :scope => "attendance",
+      :name => "venuemaracana",
+      :value => 0.4874497
+  }]
+
+coefficients.each do |new_coefficient|
+  coefficient = Coefficient.new
+  coefficient.user_id = new_coefficient[:user_id]
+  coefficient.scope = new_coefficient[:scope]
+  coefficient.name = new_coefficient[:name]
+  coefficient.value = new_coefficient[:value].round(7)
+  coefficient.save
 end

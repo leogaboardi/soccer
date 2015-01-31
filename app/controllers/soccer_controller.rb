@@ -120,6 +120,7 @@ class SoccerController < ApplicationController
       end
     end
 
+    attendance_prediction
     current_match_link
   end
 
@@ -175,6 +176,7 @@ class SoccerController < ApplicationController
       @next = first_match_id
     end
 
+
     current_match_link
   end
 
@@ -201,5 +203,11 @@ class SoccerController < ApplicationController
 
     current_match_link
     render("match_index")
+  end
+
+  #This function calculates the predicted attendance based on the coefficients from the algorithm
+  def attendance_prediction
+
+    @attendance = Math.exp(Coefficient.find_by({:name =>"intercept"}).value).round(0)
   end
 end

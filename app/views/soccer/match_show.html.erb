@@ -122,6 +122,10 @@
   <p>Total number of bets: <%= @total_count.round(0) %></p>
 </div>
 
+<div class="col-md-12">
+    <p>Expected attendance: <%= @attendance %></p>
+</div>
+
 <% if @match.venue.present? && @match.venue.address.present?  %>
 <div class="row">
   <div class="col-md-12">
@@ -154,6 +158,7 @@
   </div>
 </div>
 <% end %>
+
 
 <div class="col-md-12">
   <br>

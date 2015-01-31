@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <h1>Manage coefficients</h1>
+    <p>
+    <%= link_to "Add new coefficient", new_coefficient_path, :class => "btn btn-primary" %>
+    </p>
+    <p>
+    <a class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Import coefficients
+    </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="well">
+        <p>Please select a CSV file to upload. Note that the file needs to containg two columns: the first must contain the coefficient name and the second, the number value.</p>
+        <form action="/import_coefficients" class="form-horizontal">
+          <div class="form-group">
+            <div class="col-sm-9">
+            <input type="file" name="datafile" size="128" accept=".csv">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-9">
+              <input type="submit" value="Import" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Scope</th>
+        <th>Value</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      <% @coefficient.each do |coefficient| %>
+      <tr>
+        <td>
+          <% if coefficient.user.present? %>
+            <%= coefficient.user.username %>
+          <% end %>
+        </td>
+        <td><%= coefficient.name %></td>
+        <td><%= coefficient.scope %></td>
+        <td><%= coefficient.value %></td>
+        <td><%= link_to "View", coefficient_path(coefficient.id) %></td>
+        <td><%= link_to "Edit", edit_coefficient_path(coefficient.id) %></td>
+        <td><%= link_to "Delete", coefficient_path(coefficient.id), :method => "delete", data: {confirm: "Are you sure?"} %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

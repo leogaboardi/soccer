@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209202713) do
+ActiveRecord::Schema.define(version: 20150128021344) do
 
   create_table "bets", force: true do |t|
     t.integer  "match_id"
     t.integer  "user_id"
     t.integer  "bet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "coefficients", force: true do |t|
+    t.integer  "user_id"
+    t.decimal  "value"
+    t.text     "scope"
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
