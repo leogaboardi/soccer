@@ -12,7 +12,8 @@
   <div class="col-md-12">
     <h1>Add new match</h1>
     <br>
-    <form action="/create_match" class="form-horizontal">
+    <%= form_tag "/matches", :class => "form-horizontal", :method => "post" do %>
+
 
     <!-- Username -->
       <input type="hidden" id="user_id" name="user_id" value=<%= current_user.id %> class="form-control">
@@ -132,10 +133,10 @@
         </div>
       </div>
 
-    </form>
+    <% end %>
     <div class="col-md-12">
       <br>
-      <a href="/matches">Go back</a>
+      <%= link_to "Go back", matches_path %>
       <br>
     </div>
   </div>

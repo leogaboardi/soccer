@@ -12,7 +12,7 @@
   <div class="col-md-12">
     <h1>Edit match</h1>
     <br>
-    <form action="/update_matches/<%= @match.id %>'" class="form-horizontal">
+    <%= form_tag match_path(@match), :class => "form-horizontal", :method => "put" do %>
 
     <!-- Username -->
       <input type="hidden" id="user_id" name="user_id" value=<%= @match.user_id %> class="form-control">
@@ -131,7 +131,7 @@
         </div>
       </div>
 
-    </form>
+    <% end %>
     <div class="col-md-12">
       <br>
       <a href="/matches">Go back</a>

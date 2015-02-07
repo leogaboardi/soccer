@@ -76,6 +76,8 @@
   ##### Routes for the Match resource:
   ##### ##### ##### ##### ##### ##### ##### #####
 
+  resources :matches
+
   # CREATE
   get('/matches/new_form', { :controller => 'match', :action => 'new_form' })
   get('/create_match', { :controller => 'match', :action => 'create_row' })

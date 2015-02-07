@@ -1,4 +1,4 @@
-class MatchController < ApplicationController
+class MatchesController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 
@@ -20,11 +20,11 @@ class MatchController < ApplicationController
     @match = Match.find(params[:id])
   end
 
-  def new_form
+  def new
     @match = Match.new
   end
 
-  def create_row
+  def create
     @match = Match.new
 
     @match.tournament = params[:tournament]
@@ -60,11 +60,11 @@ class MatchController < ApplicationController
 
   end
 
-  def edit_form
+  def edit
     @match = Match.find(params[:id])
   end
 
-  def update_row
+  def update
     @match = Match.find(params[:id])
     @match.tournament = params[:tournament]
     @match.round = params[:round]

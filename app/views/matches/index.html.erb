@@ -2,7 +2,7 @@
   <div class="col-md-12">
 
     <h1>Manage matches</h1>
-    <p><a href="/matches/new_form" class="btn btn-primary">Add new match</a></p>
+    <p><%= link_to "Add new match", new_match_path, :class => "btn btn-primary" %></p>
     <table class="table table-striped">
       <tr>
         <th>Tournament</th>
@@ -57,9 +57,9 @@
           Error: team not found!
         <% end %>
         </td>
-        <td><a href="matches/<%= match.id %>">View</a></td>
-        <td><a href="matches/<%= match.id %>/edit_form">Edit</a></td>
-        <td><a href="matches/<%= match.id %>/delete">Delete</a></td>
+        <td><%= link_to "View", match_path(match.id) %></td>
+        <td><%= link_to "Edit", edit_match_path(match.id) %></td>
+        <td><%= link_to "Delete", match_path(match.id), :method => "delete", data: {confirm: "Are you sure?"} %></td>
       </tr>
       <% end %>
     </table>
