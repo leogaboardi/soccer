@@ -26,7 +26,9 @@
           Scope
         </label>
         <div class="col-sm-4">
-          <%= text_field_tag 'scope', nil, class: 'form-control' %>
+          <div class="dropdown customizeMenu">
+            <%= select_tag "scope", options_for_select(["attendance", "victory"]), include_blank: true, class: 'form-control' %>
+          </div>
         </div>
       </div>
 

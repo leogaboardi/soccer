@@ -1,0 +1,88 @@
+<!-- Validation failure messages -->
+<% if @coefficient.errors != nil %>
+  <% if @coefficient.errors.any? %>
+    <% @coefficient.errors.full_messages.each do |message| %>
+      <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>Import coefficients</h1>
+    <br>
+    <ul>
+      <li>Data from <%= @datafile %></li>
+      <li>There are <%= @coef_table.length %> entries on the data</li>
+    </ul>
+    <table class="table table-striped">
+      <tr>
+        <th>Coefficient name</th>
+        <th>Value</th>
+      </tr>
+      <% @coef_table.each do |key, element| %>
+          <tr>
+            <td>
+            <%= key %>
+            </td>
+            <td>
+            <%= element %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+
+    <%= form_tag "import_coefficients", :class => "form-horizontal", :method => "post" do %>
+      <!-- User id -->
+      <input type="hidden" id="user_id" name="user_id" value=<%= current_user.id %> class="form-control">
+
+      <!-- Data file id -->
+      <input type="hidden" name="datafile" size="128" accept=".csv" value=<%= @datafile %>>
+
+      <!-- Label and input for coefficient replacement -->
+      <div class="form-group">
+        <label for="replacement" class="col-sm-3 control-label">
+          How to upload the table
+        </label>
+        <div class="col-sm-9">
+          <div class="dropdown customizeMenu">
+            <%= select_tag "replacement", options_for_select([
+              "Update and add coefficients",
+              "Update and add coefficients, delete unused coefficients",
+              "Only add new coefficients"
+              ]), include_blank: true, class: 'form-control' %>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Label and input for coefficient scope -->
+      <div class="form-group">
+        <label for="scope" class="col-sm-3 control-label">
+          Scope
+        </label>
+        <div class="col-sm-9">
+          <div class="dropdown customizeMenu">
+            <%= select_tag "scope", options_for_select(["attendance", "victory"]), include_blank: true, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <!-- CREATE BUTTON -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-9">
+          <%= submit_tag "Import coefficients", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-md-12">
+      <br>
+      <%= link_to "Go back", coefficients_path %>
+      <br>
+    </div>
+  </div>
+</div>

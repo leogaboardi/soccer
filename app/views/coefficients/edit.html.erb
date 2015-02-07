@@ -31,7 +31,7 @@
           Scope
         </label>
         <div class="col-sm-4">
-          <%= text_field_tag 'scope', @coefficient.scope, class: 'form-control' %>
+           <%= select_tag "scope", options_for_select(["attendance", "victory"], @coefficient.scope), include_blank: true, class: 'form-control' %>
         </div>
       </div>
 

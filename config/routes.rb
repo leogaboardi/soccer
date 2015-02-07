@@ -138,4 +138,7 @@
   get("/import_coefficients", { :controller => "coefficients", :action => "import" })
   post("/import_coefficients", { :controller => "coefficients", :action => "import" })
 
+  get("/import_coefficients_form", { :controller => "coefficients", :action => "import_form" })
+  post("/import_coefficients_form", { :controller => "coefficients", :action => "import_form" })
+
 end
