@@ -8,12 +8,12 @@
       <dd><%= @match.tournament %></dd>
       <dt>Round</dt>
       <dd><%= @match.round %></dd>
-      <dt>Match date</dt>
-      <dd>
-        <% if !@match.match_on.nil?  %>
-          <%= @match.match_on.strftime("%e/%m/%y") %>
-        <% end  %>
-      </dd>
+      <% if !@match.match_on.nil?  %>
+        <dt>Match date</dt>
+        <dd><%= @match.match_on.strftime("%e/%m/%y") %></dd>
+        <dt>Weekday</dt>
+        <dd><%= @match.match_on.strftime("%A") %></dd>
+      <% end  %>
       <dt>Match starting time</dt>
       <dd>
         <% if !@match.match_at.nil?  %>
@@ -58,6 +58,49 @@
 </div>
 <div class="row">
   <div class="col-md-8">
+  <h4>Attendance statistics</h4>
+  <dl class="dl-horizontal">
+      <% if !@match.attendance_prediction.blank? %>
+      <dt>Expected attendance</dt>
+      <dd>Around <%= @match.attendance_prediction %></dd>
+      <% end %>
+      <% if !@match.outcome.nil? %>
+        <dt>Actual attendance</dt>
+        <dd><%= @match.attendance %></dd>
+        <% if !@match.attendance_prediction.blank? %>
+          <dt>Error</dt>
+          <dd><%= @match.attendance_prediction/@match.attendance-1 %></dd>
+        <% end %>
+      <% end %>
+  </dl>
+
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <table class="table table-striped">
+        <tr>
+          <th>Coefficient</th>
+          <th>Value</th>
+        </tr>
+        <% @used_coefs.each do |name,value| %>
+        <tr>
+          <td><%= name %></td>
+          <td><%= value %></td>
+        </tr>
+        <% end  %>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td><strong><%= @used_coefs.values.sum %></strong></td>
+        </tr>
+        <tr>
+          <td><strong>Exp(Total)</strong></td>
+          <td><strong><%= Math.exp(@used_coefs.values.sum).round(0) %></strong></td>
+        </tr>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
   <h4>Bet statistics</h4>
   <dl class="dl-horizontal">
       <dt>Total number of bets</dt>
@@ -75,6 +118,7 @@
 </div>
   <br>
 <div class="row">
+  <% if  @match.bets.count!=0 %>
   <div class="col-md-6 col-md-offset-3">
     <table class="table table-striped">
         <tr>
@@ -104,6 +148,7 @@
         <% end %>
     </table>
   </div>
+  <% end %>
   <div class="col-md-12">
     <br>
     <a href="/matches">Go back</a>

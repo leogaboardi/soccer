@@ -13,7 +13,8 @@ class CreateMatches < ActiveRecord::Migration
       t.integer :away_goal
       t.integer :outcome
       t.integer :user_id
-
+      t.integer :attendance
+      t.integer :attendance_prediction
       t.timestamps
     end
   end

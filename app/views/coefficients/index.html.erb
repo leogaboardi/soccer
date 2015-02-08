@@ -4,9 +4,10 @@
     <h1>Manage coefficients</h1>
     <br>
     <p><%= link_to "Add new coefficient", new_coefficient_path, :class => "btn btn-primary" %></p>
-    <p><a class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+
+    <p><a class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseImport" aria-expanded="false" aria-controls="collapseImport">
       Import coefficients</a></p>
-    <div class="collapse" id="collapseExample">
+    <div class="collapse" id="collapseImport">
       <div class="well">
         <p>Please select a CSV file to upload. Note that the file needs to containg two columns: the first must contain the coefficient name and the second, the number value.</p>
         <form action="import_coefficients_form" class="form-horizontal">
@@ -21,6 +22,21 @@
             </div>
           </div>
         </form>
+
+      </div>
+    </div>
+
+    <p><a class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseUpdate" aria-expanded="false" aria-controls="collapseUpdate">
+      Update predictions</a></p>
+    <div class="collapse" id="collapseUpdate">
+      <div class="well">
+        <%= form_tag '/update_prediction', :class => "form-horizontal", :method => "patch" do %>
+          <div class="form-group">
+            <div class="col-sm-9">
+              <input type="submit" value="Update predictions" class="btn btn-primary">
+            </div>
+          </div>
+        <% end %>
 
       </div>
     </div>

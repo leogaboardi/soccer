@@ -137,6 +137,8 @@
 
   resources :coefficients
 
+  patch("/update_prediction", { :controller => "coefficients", :action => "update_prediction" })
+
   get("/import_coefficients", { :controller => "coefficients", :action => "import" })
   post("/import_coefficients", { :controller => "coefficients", :action => "import" })
 

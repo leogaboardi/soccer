@@ -81,6 +81,76 @@ class CoefficientsController < ApplicationController
     end
   end
 
+  def update_prediction
+    #Updates attendance prediction for all matches
+    @match = Match.find(1)
+    count = 0
+    #@matches.each do |match|
+      @match.attendance_prediction = 1 #attendance(@match)
+      @match.save
+      count = count+1
+    #end
+    redirect_to "/coefficients", :notice => "Prediction updated successfully. " +count.to_s+" entries updated."
+
+  end
+
+  def attendance(match)
+    #this method estimates the attendance based on the coefficients table
+    @used_coefs = {}
+
+    def new_coefficient(name)
+      #This method looks for a coefficient in the table with the inputed name
+      coefficients = Coefficient.where(:scope => "attendance")
+      if !coefficients.find_by(:name => name).blank?
+        @used_coefs[name]=coefficients.find_by(:name => name).value
+      end
+    end
+
+    #Build a hash comprising of meaningful coefficients for this particular match
+    new_coefficient("intercept") #Intercept
+    new_coefficient("home.team"+match.home_team.name) #Home team
+    new_coefficient("away.team"+match.away_team.name) #Away team
+    new_coefficient("venue"+match.venue.name) #Venue
+    new_coefficient("round")#Round
+    @used_coefs["round"] = @used_coefs["round"]*match.round
+
+    if !match.match_at.nil?
+      new_coefficient("timeOfDay"+match.match_at.strftime("%H:%M")) #Time of day
+    end
+
+    if !match.match_on.nil?
+      new_coefficient("weekday"+match.match_on.strftime("%A")) #Weekday
+    end
+
+    #second division (division 2)
+
+    #Home days since last match
+    #Away days since last match
+    #Home previous match result
+      #Not implemented yet!
+      #new_coefficient("home.previousmatch.result")
+      #@used_coefs[name] = @used_coefs[name]
+
+    #Away previous match result
+      #Not implemented yet!
+      #new_coefficient("away.previousmatch.result")
+      #@used_coefs[name] = @used_coefs[name]
+
+    #new_coefficient("home.standing") #Home standing
+    #@used_coefs["home.standing"] = @used_coefs["home.standing"]*match.home_standing
+
+    #new_coefficient("away.standing") #Away standing
+    #@used_coefs["away.standing"] = @used_coefs["away.standing"]*match.away_standing
+
+    #Calculate the projection
+    attendance_projection = 0
+    @used_coefs.each do |name,value|
+      attendance_projection = attendance_projection + value
+    end
+    attendance_projection = (Math.exp(attendance_projection)/100).round(0)*100
+    return attendance_projection
+  end
+
   def import
     #This method reads a CSV table and populates the Coefficient database
     #Check if the row is already included in the table

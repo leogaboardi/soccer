@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20150128021344) do
     t.integer  "away_goal"
     t.integer  "outcome"
     t.integer  "user_id"
+    t.integer  "attendance"
+    t.integer  "attendance_prediction"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
